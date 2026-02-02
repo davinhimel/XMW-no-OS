@@ -1,0 +1,276 @@
+Sep 09 15:40:49 raspberrypi NetworkManager[686]: <info>  [1757428849.2901] device (wlan0): driver supports Access Point (AP) mode
+Sep 09 15:40:49 raspberrypi NetworkManager[686]: <info>  [1757428849.2915] manager: (wlan0): new 802.11 Wi-Fi device (/org/freedesktop/NetworkManager/Devices/3)
+Sep 09 15:40:49 raspberrypi NetworkManager[686]: <info>  [1757428849.2925] device (wlan0): state change: unmanaged -> unavailable (reason 'managed', sys-iface-state: 'external')
+Sep 09 15:40:49 raspberrypi NetworkManager[686]: <info>  [1757428849.5220] device (wlan0): supplicant interface state: internal-starting -> disconnected
+Sep 09 15:40:49 raspberrypi NetworkManager[686]: <info>  [1757428849.5248] device (wlan0): state change: unavailable -> disconnected (reason 'supplicant-available', sys-iface-state: 'managed')
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.0981] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.0984] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.0994] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.1003] device (wlan0): Activation: (wifi) access point 'XM-SEC-5G' has security, but secrets are required.
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.1004] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.1031] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.1037] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.1045] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.1279] device (wlan0): supplicant interface state: disconnected -> associating
+Sep 09 15:40:56 raspberrypi NetworkManager[686]: <info>  [1757428856.2387] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757428881.0619] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: <info>  [1757428881.0620] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757428881.0627] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: <info>  [1757428881.0641] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: <info>  [1757428881.0658] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: <info>  [1757428881.0668] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: <info>  [1757428881.0787] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 15:41:21 raspberrypi NetworkManager[686]: <info>  [1757428881.0892] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 15:41:27 raspberrypi NetworkManager[686]: <info>  [1757428887.7783] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 15:41:27 raspberrypi NetworkManager[686]: <info>  [1757428887.8713] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757428906.0639] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: <info>  [1757428906.0641] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757428906.0663] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: <info>  [1757428906.0713] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: <info>  [1757428906.0728] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: <info>  [1757428906.0745] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: <info>  [1757428906.0932] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 15:41:46 raspberrypi NetworkManager[686]: <info>  [1757428906.1080] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 15:41:52 raspberrypi NetworkManager[686]: <info>  [1757428912.6516] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 15:41:52 raspberrypi NetworkManager[686]: <info>  [1757428912.7556] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 15:42:11 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757428931.0652] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 15:42:11 raspberrypi NetworkManager[686]: <info>  [1757428931.0654] device (wlan0): state change: config -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 15:42:11 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757428931.0683] device (wlan0): Activation: failed for connection 'XM-SEC-5G'[0m
+Sep 09 15:42:11 raspberrypi NetworkManager[686]: <info>  [1757428931.0695] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:42:11 raspberrypi NetworkManager[686]: <info>  [1757428931.0901] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 15:42:17 raspberrypi NetworkManager[686]: <info>  [1757428937.6640] device (wlan0): Activation: starting connection 'XM-EMPL-5G' (2ca534f7-73e5-4be5-87bd-11477dc5bc35)
+Sep 09 15:42:17 raspberrypi NetworkManager[686]: <info>  [1757428937.6645] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:42:17 raspberrypi NetworkManager[686]: <info>  [1757428937.6674] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:42:17 raspberrypi NetworkManager[686]: <info>  [1757428937.6691] device (wlan0): Activation: (wifi) access point 'XM-EMPL-5G' has security, but secrets are required.
+Sep 09 15:42:17 raspberrypi NetworkManager[686]: <info>  [1757428937.6693] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 15:43:40 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757429020.8208] device (wlan0): no secrets: User canceled the secrets request.[0m
+Sep 09 15:43:40 raspberrypi NetworkManager[686]: <info>  [1757429020.8209] device (wlan0): state change: need-auth -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 15:43:40 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757429020.8220] device (wlan0): Activation: failed for connection 'XM-EMPL-5G'[0m
+Sep 09 15:43:40 raspberrypi NetworkManager[686]: <info>  [1757429020.8225] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1009] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1012] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1061] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1177] device (wlan0): Activation: (wifi) access point 'XM-SEC-5G' has security, but secrets are required.
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1178] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1209] device (wlan0): state change: need-auth -> deactivating (reason 'new-activation', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1228] device (wlan0): disconnecting for new activation request.
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437224.1933] device (wlan0): Deactivation failed: GDBus.Error:fi.w1.wpa_supplicant1.NotConnected: This interface is not connected[0m
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1934] device (wlan0): state change: deactivating -> disconnected (reason 'new-activation', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.1990] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.2004] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.2013] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.2020] device (wlan0): Activation: (wifi) access point 'XM-SEC-5G' has security, but secrets are required.
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.2021] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.2051] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.2058] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:24 raspberrypi NetworkManager[686]: <info>  [1757437224.2065] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:00:30 raspberrypi NetworkManager[686]: <info>  [1757437230.7558] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:00:37 raspberrypi NetworkManager[686]: <info>  [1757437237.3107] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:00:37 raspberrypi NetworkManager[686]: <info>  [1757437237.4747] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437249.8398] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: <info>  [1757437249.8399] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437249.8406] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: <info>  [1757437249.8429] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: <info>  [1757437249.8435] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: <info>  [1757437249.8441] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: <info>  [1757437249.8550] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:00:49 raspberrypi NetworkManager[686]: <info>  [1757437249.8658] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:00:56 raspberrypi NetworkManager[686]: <info>  [1757437256.4284] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:00:56 raspberrypi NetworkManager[686]: <info>  [1757437256.5124] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437274.8396] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: <info>  [1757437274.8397] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437274.8404] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: <info>  [1757437274.8423] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: <info>  [1757437274.8431] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: <info>  [1757437274.8439] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: <info>  [1757437274.8550] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:01:14 raspberrypi NetworkManager[686]: <info>  [1757437274.8656] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:01:21 raspberrypi NetworkManager[686]: <info>  [1757437281.4400] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:01:21 raspberrypi NetworkManager[686]: <info>  [1757437281.6037] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:01:39 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437299.8401] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:01:39 raspberrypi NetworkManager[686]: <info>  [1757437299.8402] device (wlan0): state change: config -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:01:39 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437299.8411] device (wlan0): Activation: failed for connection 'XM-SEC-5G'[0m
+Sep 09 18:01:39 raspberrypi NetworkManager[686]: <info>  [1757437299.8415] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:01:39 raspberrypi NetworkManager[686]: <info>  [1757437299.8510] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:01:46 raspberrypi NetworkManager[686]: <info>  [1757437306.4265] device (wlan0): Activation: starting connection 'XM-EMPL-5G' (2ca534f7-73e5-4be5-87bd-11477dc5bc35)
+Sep 09 18:01:46 raspberrypi NetworkManager[686]: <info>  [1757437306.4268] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:01:46 raspberrypi NetworkManager[686]: <info>  [1757437306.4277] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:01:46 raspberrypi NetworkManager[686]: <info>  [1757437306.4287] device (wlan0): Activation: (wifi) access point 'XM-EMPL-5G' has security, but secrets are required.
+Sep 09 18:01:46 raspberrypi NetworkManager[686]: <info>  [1757437306.4288] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:03:46 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437426.4842] device (wlan0): no secrets: No agents were available for this request.[0m
+Sep 09 18:03:46 raspberrypi NetworkManager[686]: <info>  [1757437426.4842] device (wlan0): state change: need-auth -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:03:46 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437426.4851] device (wlan0): Activation: failed for connection 'XM-EMPL-5G'[0m
+Sep 09 18:03:46 raspberrypi NetworkManager[686]: <info>  [1757437426.4855] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.8986] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.8991] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.9000] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.9010] device (wlan0): Activation: (wifi) access point 'XM-SEC-5G' has security, but secrets are required.
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.9011] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.9040] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.9047] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:03:49 raspberrypi NetworkManager[686]: <info>  [1757437429.9053] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:03:53 raspberrypi NetworkManager[686]: <info>  [1757437433.0887] device (wlan0): supplicant interface state: disconnected -> associating
+Sep 09 18:03:53 raspberrypi NetworkManager[686]: <info>  [1757437433.2590] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437454.8394] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: <info>  [1757437454.8394] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437454.8402] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: <info>  [1757437454.8422] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: <info>  [1757437454.8430] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: <info>  [1757437454.8438] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: <info>  [1757437454.8537] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:04:14 raspberrypi NetworkManager[686]: <info>  [1757437454.8643] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:04:21 raspberrypi NetworkManager[686]: <info>  [1757437461.4569] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:04:21 raspberrypi NetworkManager[686]: <info>  [1757437461.6242] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437479.8397] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: <info>  [1757437479.8397] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437479.8405] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: <info>  [1757437479.8421] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: <info>  [1757437479.8426] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: <info>  [1757437479.8459] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: <info>  [1757437479.8569] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:04:39 raspberrypi NetworkManager[686]: <info>  [1757437479.8682] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:04:46 raspberrypi NetworkManager[686]: <info>  [1757437486.4554] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:04:46 raspberrypi NetworkManager[686]: <info>  [1757437486.6100] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:05:04 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437504.8392] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:05:04 raspberrypi NetworkManager[686]: <info>  [1757437504.8393] device (wlan0): state change: config -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:05:04 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437504.8403] device (wlan0): Activation: failed for connection 'XM-SEC-5G'[0m
+Sep 09 18:05:04 raspberrypi NetworkManager[686]: <info>  [1757437504.8408] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:04 raspberrypi NetworkManager[686]: <info>  [1757437504.8539] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:05:11 raspberrypi NetworkManager[686]: <info>  [1757437511.3938] device (wlan0): Activation: starting connection 'XM-EMPL-5G' (2ca534f7-73e5-4be5-87bd-11477dc5bc35)
+Sep 09 18:05:11 raspberrypi NetworkManager[686]: <info>  [1757437511.3940] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:11 raspberrypi NetworkManager[686]: <info>  [1757437511.3948] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:11 raspberrypi NetworkManager[686]: <info>  [1757437511.3954] device (wlan0): Activation: (wifi) access point 'XM-EMPL-5G' has security, but secrets are required.
+Sep 09 18:05:11 raspberrypi NetworkManager[686]: <info>  [1757437511.3955] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:52 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437552.8051] device (wlan0): no secrets: User canceled the secrets request.[0m
+Sep 09 18:05:52 raspberrypi NetworkManager[686]: <info>  [1757437552.8052] device (wlan0): state change: need-auth -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:05:52 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437552.8062] device (wlan0): Activation: failed for connection 'XM-EMPL-5G'[0m
+Sep 09 18:05:52 raspberrypi NetworkManager[686]: <info>  [1757437552.8068] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7215] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7221] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7231] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7239] device (wlan0): Activation: (wifi) access point 'XM-SEC-5G' has security, but secrets are required.
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7240] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7271] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7278] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:05:59 raspberrypi NetworkManager[686]: <info>  [1757437559.7284] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:06:05 raspberrypi NetworkManager[686]: <info>  [1757437565.8797] device (wlan0): supplicant interface state: disconnected -> associating
+Sep 09 18:06:05 raspberrypi NetworkManager[686]: <info>  [1757437565.9672] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437584.8393] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: <info>  [1757437584.8394] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437584.8402] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: <info>  [1757437584.8420] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: <info>  [1757437584.8426] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: <info>  [1757437584.8432] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: <info>  [1757437584.8550] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:06:24 raspberrypi NetworkManager[686]: <info>  [1757437584.8662] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:06:31 raspberrypi NetworkManager[686]: <info>  [1757437591.4070] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:06:31 raspberrypi NetworkManager[686]: <info>  [1757437591.5703] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437609.8399] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: <info>  [1757437609.8400] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437609.8413] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: <info>  [1757437609.8505] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: <info>  [1757437609.8552] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: <info>  [1757437609.8630] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: <info>  [1757437609.8740] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:06:49 raspberrypi NetworkManager[686]: <info>  [1757437609.8946] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:06:56 raspberrypi NetworkManager[686]: <info>  [1757437616.4884] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:06:56 raspberrypi NetworkManager[686]: <info>  [1757437616.5536] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:07:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437634.8396] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:07:14 raspberrypi NetworkManager[686]: <info>  [1757437634.8396] device (wlan0): state change: config -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:07:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437634.8405] device (wlan0): Activation: failed for connection 'XM-SEC-5G'[0m
+Sep 09 18:07:14 raspberrypi NetworkManager[686]: <info>  [1757437634.8408] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:07:14 raspberrypi NetworkManager[686]: <info>  [1757437634.8504] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0823] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0827] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0850] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0865] device (wlan0): Activation: (wifi) access point 'XM-SEC-5G' has security, but secrets are required.
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0868] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0915] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0922] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:07:46 raspberrypi NetworkManager[686]: <info>  [1757437666.0929] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:07:48 raspberrypi NetworkManager[686]: <info>  [1757437668.3860] device (wlan0): supplicant interface state: disconnected -> associating
+Sep 09 18:07:48 raspberrypi NetworkManager[686]: <info>  [1757437668.4698] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437691.8394] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: <info>  [1757437691.8395] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437691.8403] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: <info>  [1757437691.8422] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: <info>  [1757437691.8429] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: <info>  [1757437691.8437] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: <info>  [1757437691.8518] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:08:11 raspberrypi NetworkManager[686]: <info>  [1757437691.8628] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:08:18 raspberrypi NetworkManager[686]: <info>  [1757437698.4088] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:08:18 raspberrypi NetworkManager[686]: <info>  [1757437698.5792] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437716.8393] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: <info>  [1757437716.8394] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437716.8402] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: <info>  [1757437716.8421] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: <info>  [1757437716.8429] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: <info>  [1757437716.8436] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: <info>  [1757437716.8546] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:08:36 raspberrypi NetworkManager[686]: <info>  [1757437716.8651] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:08:43 raspberrypi NetworkManager[686]: <info>  [1757437723.3794] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:08:43 raspberrypi NetworkManager[686]: <info>  [1757437723.4601] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:09:01 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437741.8409] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:09:01 raspberrypi NetworkManager[686]: <info>  [1757437741.8410] device (wlan0): state change: config -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:09:01 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757437741.8418] device (wlan0): Activation: failed for connection 'XM-SEC-5G'[0m
+Sep 09 18:09:01 raspberrypi NetworkManager[686]: <info>  [1757437741.8421] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:09:01 raspberrypi NetworkManager[686]: <info>  [1757437741.8512] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8060] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8061] device (wlan0): state change: disconnected -> deactivating (reason 'new-activation', sys-iface-state: 'managed')
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8079] device (wlan0): disconnecting for new activation request.
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438392.8547] device (wlan0): Deactivation failed: GDBus.Error:fi.w1.wpa_supplicant1.NotConnected: This interface is not connected[0m
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8548] device (wlan0): state change: deactivating -> disconnected (reason 'new-activation', sys-iface-state: 'managed')
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8601] device (wlan0): Activation: starting connection 'XM-SEC-5G' (8e75a01e-1dea-482e-bffc-317ad38e785b)
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8635] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8643] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8670] device (wlan0): Activation: (wifi) access point 'XM-SEC-5G' has security, but secrets are required.
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8671] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8718] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8731] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:19:52 raspberrypi NetworkManager[686]: <info>  [1757438392.8742] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:19:59 raspberrypi NetworkManager[686]: <info>  [1757438399.4603] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:20:05 raspberrypi NetworkManager[686]: <info>  [1757438405.9532] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:20:06 raspberrypi NetworkManager[686]: <info>  [1757438406.0335] device (wlan0): supplicant interface state: associating -> disconnected
+Sep 09 18:20:06 raspberrypi NetworkManager[686]: <info>  [1757438406.1327] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:20:12 raspberrypi NetworkManager[686]: <info>  [1757438412.6280] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:20:12 raspberrypi NetworkManager[686]: <info>  [1757438412.7180] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:20:12 raspberrypi NetworkManager[686]: <info>  [1757438412.8006] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:20:12 raspberrypi NetworkManager[686]: <info>  [1757438412.8979] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:20:17 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438417.8398] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:20:17 raspberrypi NetworkManager[686]: <info>  [1757438417.8399] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:20:17 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438417.8417] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:20:17 raspberrypi NetworkManager[686]: <info>  [1757438417.8461] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:20:17 raspberrypi NetworkManager[686]: <info>  [1757438417.8480] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:20:17 raspberrypi NetworkManager[686]: <info>  [1757438417.8493] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:20:17 raspberrypi NetworkManager[686]: <info>  [1757438417.9003] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:20:18 raspberrypi NetworkManager[686]: <info>  [1757438418.0549] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:20:18 raspberrypi NetworkManager[686]: <info>  [1757438418.1540] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:20:18 raspberrypi NetworkManager[686]: <info>  [1757438418.2515] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:20:34 raspberrypi NetworkManager[686]: <info>  [1757438434.8558] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:20:34 raspberrypi NetworkManager[686]: <info>  [1757438434.9358] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:20:35 raspberrypi NetworkManager[686]: <info>  [1757438435.0060] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:20:35 raspberrypi NetworkManager[686]: <info>  [1757438435.1040] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:20:42 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438442.8398] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:20:42 raspberrypi NetworkManager[686]: <info>  [1757438442.8399] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:20:42 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438442.8410] device (wlan0): Activation: (wifi) asking for new secrets[0m
+Sep 09 18:20:42 raspberrypi NetworkManager[686]: <info>  [1757438442.8464] device (wlan0): state change: need-auth -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:20:42 raspberrypi NetworkManager[686]: <info>  [1757438442.8476] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:20:42 raspberrypi NetworkManager[686]: <info>  [1757438442.8487] device (wlan0): Activation: (wifi) connection 'XM-SEC-5G' has security, and secrets exist.  No new secrets needed.
+Sep 09 18:20:42 raspberrypi NetworkManager[686]: <info>  [1757438442.8983] device (wlan0): supplicant interface state: scanning -> associating
+Sep 09 18:20:43 raspberrypi NetworkManager[686]: <info>  [1757438443.0279] device (wlan0): supplicant interface state: associating -> associated
+Sep 09 18:20:46 raspberrypi NetworkManager[686]: <info>  [1757438446.0533] device (wlan0): supplicant interface state: associated -> disconnected
+Sep 09 18:20:46 raspberrypi NetworkManager[686]: <info>  [1757438446.1511] device (wlan0): supplicant interface state: disconnected -> scanning
+Sep 09 18:21:07 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438467.8400] device (wlan0): Activation: (wifi) association took too long[0m
+Sep 09 18:21:07 raspberrypi NetworkManager[686]: <info>  [1757438467.8400] device (wlan0): state change: config -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:21:07 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438467.8408] device (wlan0): Activation: failed for connection 'XM-SEC-5G'[0m
+Sep 09 18:21:07 raspberrypi NetworkManager[686]: <info>  [1757438467.8411] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:21:14 raspberrypi NetworkManager[686]: <info>  [1757438474.3897] device (wlan0): supplicant interface state: scanning -> disconnected
+Sep 09 18:21:14 raspberrypi NetworkManager[686]: <info>  [1757438474.3919] device (wlan0): Activation: starting connection 'XM-EMPL-5G' (2ca534f7-73e5-4be5-87bd-11477dc5bc35)
+Sep 09 18:21:14 raspberrypi NetworkManager[686]: <info>  [1757438474.3922] device (wlan0): state change: disconnected -> prepare (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:21:14 raspberrypi NetworkManager[686]: <info>  [1757438474.3931] device (wlan0): state change: prepare -> config (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:21:14 raspberrypi NetworkManager[686]: <info>  [1757438474.3945] device (wlan0): Activation: (wifi) access point 'XM-EMPL-5G' has security, but secrets are required.
+Sep 09 18:21:14 raspberrypi NetworkManager[686]: <info>  [1757438474.3945] device (wlan0): state change: config -> need-auth (reason 'none', sys-iface-state: 'managed')
+Sep 09 18:23:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438594.4256] device (wlan0): no secrets: No agents were available for this request.[0m
+Sep 09 18:23:14 raspberrypi NetworkManager[686]: <info>  [1757438594.4256] device (wlan0): state change: need-auth -> failed (reason 'no-secrets', sys-iface-state: 'managed')
+Sep 09 18:23:14 raspberrypi NetworkManager[686]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185m<warn>  [1757438594.4266] device (wlan0): Activation: failed for connection 'XM-EMPL-5G'[0m
+Sep 09 18:23:14 raspberrypi NetworkManager[686]: <info>  [1757438594.4272] device (wlan0): state change: failed -> disconnected (reason 'none', sys-iface-state: 'managed')

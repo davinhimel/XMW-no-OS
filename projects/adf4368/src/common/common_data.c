@@ -1,9 +1,9 @@
 /***************************************************************************//**
  *   @file   common_data.c
- *   @brief  Defines common data to be used by adf4368 examples.
- *   @author Sirac Kucukarabacioglu (sirac.kucukarabacioglu@analog.com)
+ *   @brief  Defines the common data used in the examples eval-adf4368 project
+ *   @author Generated for Linux platform
 ********************************************************************************
- * Copyright 2024(c) Analog Devices, Inc.
+ * Copyright 2025(c) Analog Devices, Inc.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -19,7 +19,7 @@
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. “AS IS” AND ANY EXPRESS OR
+ * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  * EVENT SHALL ANALOG DEVICES, INC. BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -32,6 +32,21 @@
 *******************************************************************************/
 
 #include "common_data.h"
+#include "parameters.h"
+
+struct no_os_spi_init_param adf4368_spi_ip = {
+	.device_id = SPI_DEVICE_ID,
+	.max_speed_hz = 2000000,
+	.chip_select = SPI_CS,
+	.mode = NO_OS_SPI_MODE_0,
+	.bit_order = NO_OS_SPI_BIT_ORDER_MSB_FIRST,
+	.platform_ops = SPI_OPS,
+	.extra = SPI_EXTRA
+};
+
+// GPIO parameters are optional for vendor ID test
+// Note: GPIO setup requires proper Linux platform headers
+// For full GPIO functionality, the Linux GPIO driver needs to be fixed
 
 struct no_os_uart_init_param adf4368_uart_ip = {
 	.device_id = UART_DEVICE_ID,
@@ -45,24 +60,14 @@ struct no_os_uart_init_param adf4368_uart_ip = {
 	.platform_ops = UART_OPS,
 };
 
-struct no_os_spi_init_param adf4368_spi_ip = {
-	.device_id = SPI_DEVICE_ID,
-	.max_speed_hz = 3000000,
-	.bit_order = NO_OS_SPI_BIT_ORDER_MSB_FIRST,
-	.mode = NO_OS_SPI_MODE_0,
-	.platform_ops = SPI_OPS,
-	.chip_select = SPI_CS,
-	.extra = SPI_EXTRA,
-};
-
 struct adf4368_init_param adf4368_ip = {
 	.spi_init = &adf4368_spi_ip,
 	.spi_4wire_en = true,
-	.cmos_3v3 = false,
-	.ref_freq_hz = 125000000,
-	.freq = 8000000000,
-	.ref_doubler_en = 1,
+	.cmos_3v3 = true,
+	.ref_freq_hz = 100000000,  /* 100 MHz reference frequency */
+	.freq = 2400000000,        /* 2.4 GHz output frequency */
+	.ref_doubler_en = false,
 	.ref_div = 1,
-	.cp_i = 14,
-	.ld_count = 12,
+	.cp_i = 2,                 /* Charge pump current */
+	.ld_count = 0,             /* Lock detect count */
 };

@@ -1,8 +1,7 @@
 /***************************************************************************//**
  *   @file   common_data.c
  *   @brief  Defines the common data used in the examples eval-adf4377 project
- *   @author Antoniu Miclaus (antoniu.miclaus@analog.com)
- *   @author Jude Osemene (jude.osemene@analog.com)
+ *   @author Generated for Linux platform
 ********************************************************************************
  * Copyright 2025(c) Analog Devices, Inc.
  *
@@ -20,7 +19,7 @@
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. “AS IS” AND ANY EXPRESS OR
+ * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  * EVENT SHALL ANALOG DEVICES, INC. BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -63,6 +62,11 @@ struct no_os_gpio_init_param gpio_enclk2_param = {
 	.extra = GPIO_EXTRA
 };
 
+struct no_os_gpio_init_param adf4377_gpio_ip = {
+	.platform_ops = GPIO_OPS,
+	.extra = GPIO_EXTRA
+};
+
 struct no_os_uart_init_param adf4377_uart_ip = {
 	.device_id = UART_DEVICE_ID,
 	.irq_id = UART_IRQ_ID,
@@ -79,9 +83,9 @@ struct adf4377_init_param adf4377_ip = {
 	.dev_id = ADF4377,
 	.spi_init = &adf4377_spi_ip,
 	.spi4wire = true,
-	.gpio_ce_param = &gpio_ce_param,
-	.gpio_enclk1_param = &gpio_enclk1_param,
-	.gpio_enclk2_param = &gpio_enclk2_param,
+	.gpio_ce_param = NULL,  // Optional for vendor ID test
+	.gpio_enclk1_param = NULL,  // Optional for vendor ID test
+	.gpio_enclk2_param = NULL,  // Optional for vendor ID test
 	.clkin_freq = 125000000,
 	.ref_doubler_en = 1,
 	.f_clk = 10000000000,

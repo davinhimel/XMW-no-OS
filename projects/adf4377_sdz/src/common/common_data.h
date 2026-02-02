@@ -1,8 +1,7 @@
 /***************************************************************************//**
  *   @file   common_data.h
  *   @brief  Defines the common data used for examples eval-adf4377 project
- *   @author Antoniu Miclaus (antoniu.miclaus@analog.com)
- *   @author Jude Osemene (jude.osemene@analog.com)
+ *   @author Generated for Linux platform
 ********************************************************************************
  * Copyright 2025(c) Analog Devices, Inc.
  *
@@ -20,7 +19,7 @@
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. “AS IS” AND ANY EXPRESS OR
+ * THIS SOFTWARE IS PROVIDED BY ANALOG DEVICES, INC. "AS IS" AND ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
  * EVENT SHALL ANALOG DEVICES, INC. BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -42,6 +41,7 @@
 
 extern struct no_os_uart_init_param	adf4377_uart_ip;
 extern struct no_os_spi_init_param	adf4377_spi_ip;
+extern struct no_os_gpio_init_param	adf4377_gpio_ip;
 extern struct adf4377_init_param 	adf4377_ip;
 
 #endif /* __COMMON_DATA_H__ */

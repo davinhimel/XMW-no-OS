@@ -1,0 +1,40 @@
+# Minimal ADF4377 Vendor ID Test Makefile
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -g -O0
+INCLUDES = -I../../include -I../../drivers/platform/linux -I../../drivers/api -I../../util -I../../drivers/frequency/adf4377 -Isrc/platform/linux -Isrc/common
+
+# Source files
+SOURCES = minimal_vendor_id_test.c \
+          ../../drivers/frequency/adf4377/adf4377.c \
+          ../../drivers/api/no_os_spi.c \
+          ../../drivers/platform/linux/linux_spi.c \
+          ../../drivers/api/no_os_gpio.c \
+          ../../drivers/platform/linux/linux_gpio.c \
+          ../../drivers/api/no_os_uart.c \
+          ../../drivers/platform/linux/linux_uart.c \
+          ../../util/no_os_alloc.c \
+          ../../util/no_os_util.c \
+          ../../util/no_os_delay.c \
+          ../../drivers/platform/linux/linux_delay.c \
+          src/common/common_data.c \
+          src/platform/linux/parameters.c
+
+# Object files
+OBJECTS = $(SOURCES:.c=.o)
+
+# Target executable
+TARGET = minimal_vendor_id_test
+
+# Default target
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+clean:
+	rm -f $(OBJECTS) $(TARGET)
+
+.PHONY: all clean

@@ -34,6 +34,24 @@
 #ifndef LINUX_SPI_H_
 #define LINUX_SPI_H_
 
+#include <stdint.h>
+
+/**
+ * @struct linux_spi_init_param
+ * @brief Structure holding the initialization parameters for Linux platform
+ * specific SPI parameters.
+ */
+struct linux_spi_init_param {
+	/** SPI device ID (/dev/spidev"device_id".0) */
+	uint32_t device_id;
+	/** SPI chip select */
+	uint8_t chip_select;
+	/** Maximum SPI speed in Hz */
+	uint32_t max_speed_hz;
+	/** SPI mode (0-3) */
+	uint8_t mode;
+};
+
 /**
  * @brief Linux specific SPI platform ops structure
  */

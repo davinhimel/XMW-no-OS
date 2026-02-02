@@ -1220,7 +1220,7 @@ int32_t adf4377_init(struct adf4377_dev **device,
 	}
 	*device = dev;
 
-	return ret;
+	return 0;
 
 error_gpio_enclk2:
 	no_os_gpio_remove(dev->gpio_enclk2);

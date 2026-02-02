@@ -1,0 +1,83 @@
+{
+  "chip_name": "ADF4382",
+  "lib_name": "libadf4382.so",
+  "init_func": "adf4382_init",
+  "remove_func": "adf4382_remove",
+  "params": [
+    {
+      "name": "ref_freq_hz",
+      "type": "uint64",
+      "default": 125000000,
+      "range": [10000000, 5000000000]
+    },
+    {
+      "name": "freq",
+      "type": "uint64",
+      "default": 20000000000,
+      "range": [687500000, 22000000000]
+    },
+    {
+      "name": "cp_i",
+      "type": "uint8",
+      "default": 15,
+      "range": [0, 15]
+    },
+    {
+      "name": "bleed_word",
+      "type": "uint16",
+      "default": 4903,
+      "range": [0, 8191]
+    },
+    {
+      "name": "ref_doubler_en",
+      "type": "bool",
+      "default": true
+    },
+    {
+      "name": "ref_div",
+      "type": "uint8",
+      "default": 1,
+      "range": [1, 63]
+    },
+    {
+      "name": "ld_count",
+      "type": "uint8",
+      "default": 10,
+      "range": [0, 255]
+    },
+    {
+      "name": "phase_ps",
+      "type": "uint32",
+      "default": 0,
+      "range": [0, 255]
+    }
+  ],
+  "setters": [
+    {
+      "func": "adf4382_set_rfout",
+      "param": "freq",
+      "type": "uint64"
+    },
+    {
+      "func": "adf4382_set_cp_i",
+      "param": "cp_i",
+      "type": "int32"
+    },
+    {
+      "func": "adf4382_set_bleed_word",
+      "param": "bleed_word",
+      "type": "int32"
+    },
+    {
+      "func": "adf4382_set_phase_adjust",
+      "param": "phase_ps",
+      "type": "uint32"
+    }
+  ],
+  "spi_defaults": {
+    "device_id": 0,
+    "chip_select": 0,
+    "max_speed_hz": 1500000,
+    "mode": 0
+  }
+} 
