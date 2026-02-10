@@ -49,7 +49,11 @@ struct no_os_spi_init_param adf4377_spi_ip = {
 	.max_speed_hz = SPI_BAUDRATE,
 	.chip_select = SPI_CS,
 	.mode = NO_OS_SPI_MODE_0,
+#ifdef ADF4377_TEST_LSB_FIRST
+	.bit_order = NO_OS_SPI_BIT_ORDER_LSB_FIRST,
+#else
 	.bit_order = NO_OS_SPI_BIT_ORDER_MSB_FIRST,
+#endif
 	.platform_ops = SPI_OPS,
 	.extra = SPI_EXTRA
 };

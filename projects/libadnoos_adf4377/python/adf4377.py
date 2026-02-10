@@ -218,9 +218,6 @@ class linux_spi_init_param(object):
 
 # Register linux_spi_init_param in _adf4377:
 _adf4377.linux_spi_init_param_swigregister(linux_spi_init_param)
-
-def get_linux_spi_ops():
-    return _adf4377.get_linux_spi_ops()
 ADF4377_RESET_CMD = _adf4377.ADF4377_RESET_CMD
 ADF4377_SDO_ACTIVE_SPI_3W = _adf4377.ADF4377_SDO_ACTIVE_SPI_3W
 ADF4377_SDO_ACTIVE_SPI_4W = _adf4377.ADF4377_SDO_ACTIVE_SPI_4W
@@ -451,6 +448,10 @@ class adf4377_dev(object):
     sr_inv = property(_adf4377.adf4377_dev_sr_inv_get, _adf4377.adf4377_dev_sr_inv_set)
     sysrefout = property(_adf4377.adf4377_dev_sysrefout_get, _adf4377.adf4377_dev_sysrefout_set)
 
+    @staticmethod
+    def init(param):
+        return _adf4377.adf4377_dev_init(param)
+
     def __init__(self):
         _adf4377.adf4377_dev_swiginit(self, _adf4377.new_adf4377_dev())
     __swig_destroy__ = _adf4377.delete_adf4377_dev
@@ -470,56 +471,56 @@ def adf4377_spi_read(dev, reg_addr):
 def adf4377_set_ref_clk(dev, val):
     return _adf4377.adf4377_set_ref_clk(dev, val)
 
-def adf4377_get_ref_clk(dev):
-    return _adf4377.adf4377_get_ref_clk(dev)
+def adf4377_get_ref_clk(dev, val):
+    return _adf4377.adf4377_get_ref_clk(dev, val)
 
 def adf4377_set_en_ref_doubler(dev, en):
     return _adf4377.adf4377_set_en_ref_doubler(dev, en)
 
-def adf4377_get_en_ref_doubler(dev):
-    return _adf4377.adf4377_get_en_ref_doubler(dev)
+def adf4377_get_en_ref_doubler(dev, en):
+    return _adf4377.adf4377_get_en_ref_doubler(dev, en)
 
 def adf4377_set_ref_div(dev, div):
     return _adf4377.adf4377_set_ref_div(dev, div)
 
-def adf4377_get_ref_div(dev):
-    return _adf4377.adf4377_get_ref_div(dev)
+def adf4377_get_ref_div(dev, div):
+    return _adf4377.adf4377_get_ref_div(dev, div)
 
 def adf4377_set_cp_i(dev, reg_val):
     return _adf4377.adf4377_set_cp_i(dev, reg_val)
 
-def adf4377_get_cp_i(dev):
-    return _adf4377.adf4377_get_cp_i(dev)
+def adf4377_get_cp_i(dev, reg_val):
+    return _adf4377.adf4377_get_cp_i(dev, reg_val)
 
 def adf4377_set_bleed_word(dev, word):
     return _adf4377.adf4377_set_bleed_word(dev, word)
 
-def adf4377_get_bleed_word(dev):
-    return _adf4377.adf4377_get_bleed_word(dev)
+def adf4377_get_bleed_word(dev, word):
+    return _adf4377.adf4377_get_bleed_word(dev, word)
 
 def adf4377_set_rfout(dev, val):
     return _adf4377.adf4377_set_rfout(dev, val)
 
-def adf4377_get_rfout(dev):
-    return _adf4377.adf4377_get_rfout(dev)
+def adf4377_get_rfout(dev, val):
+    return _adf4377.adf4377_get_rfout(dev, val)
 
 def adf4377_set_en_chan(dev, ch, en):
     return _adf4377.adf4377_set_en_chan(dev, ch, en)
 
-def adf4377_get_en_chan(dev, ch):
-    return _adf4377.adf4377_get_en_chan(dev, ch)
+def adf4377_get_en_chan(dev, ch, en):
+    return _adf4377.adf4377_get_en_chan(dev, ch, en)
 
 def adf4377_set_out_power(dev, ch, pwr):
     return _adf4377.adf4377_set_out_power(dev, ch, pwr)
 
-def adf4377_get_out_power(dev, ch):
-    return _adf4377.adf4377_get_out_power(dev, ch)
+def adf4377_get_out_power(dev, ch, pwr):
+    return _adf4377.adf4377_get_out_power(dev, ch, pwr)
 
 def adf4377_set_rfout_divider(dev, div):
     return _adf4377.adf4377_set_rfout_divider(dev, div)
 
-def adf4377_get_rfout_divider(dev):
-    return _adf4377.adf4377_get_rfout_divider(dev)
+def adf4377_get_rfout_divider(dev, div):
+    return _adf4377.adf4377_get_rfout_divider(dev, div)
 
 def adf4377_check_scratchpad(dev):
     return _adf4377.adf4377_check_scratchpad(dev)
@@ -527,32 +528,32 @@ def adf4377_check_scratchpad(dev):
 def adf4377_set_sr_del_adj(dev, val):
     return _adf4377.adf4377_set_sr_del_adj(dev, val)
 
-def adf4377_get_sr_del_adj(dev):
-    return _adf4377.adf4377_get_sr_del_adj(dev)
+def adf4377_get_sr_del_adj(dev, val):
+    return _adf4377.adf4377_get_sr_del_adj(dev, val)
 
 def adf4377_set_en_sr_inv_adj(dev, en):
     return _adf4377.adf4377_set_en_sr_inv_adj(dev, en)
 
-def adf4377_get_en_sr_inv_adj(dev):
-    return _adf4377.adf4377_get_en_sr_inv_adj(dev)
+def adf4377_get_en_sr_inv_adj(dev, en):
+    return _adf4377.adf4377_get_en_sr_inv_adj(dev, en)
 
 def adf4377_set_en_sysref_monitor(dev, en):
     return _adf4377.adf4377_set_en_sysref_monitor(dev, en)
 
-def adf4377_get_en_sysref_monitor(dev):
-    return _adf4377.adf4377_get_en_sysref_monitor(dev)
+def adf4377_get_en_sysref_monitor(dev, en):
+    return _adf4377.adf4377_get_en_sysref_monitor(dev, en)
 
 def adf4377_set_ndel(dev, val):
     return _adf4377.adf4377_set_ndel(dev, val)
 
-def adf4377_get_ndel(dev):
-    return _adf4377.adf4377_get_ndel(dev)
+def adf4377_get_ndel(dev, val):
+    return _adf4377.adf4377_get_ndel(dev, val)
 
 def adf4377_set_rdel(dev, val):
     return _adf4377.adf4377_set_rdel(dev, val)
 
-def adf4377_get_rdel(dev):
-    return _adf4377.adf4377_get_rdel(dev)
+def adf4377_get_rdel(dev, val):
+    return _adf4377.adf4377_get_rdel(dev, val)
 
 def adf4377_set_freq(dev):
     return _adf4377.adf4377_set_freq(dev)
@@ -560,9 +561,12 @@ def adf4377_set_freq(dev):
 def adf4377_soft_reset(dev, spi_4wire):
     return _adf4377.adf4377_soft_reset(dev, spi_4wire)
 
-def adf4377_init(init_param):
-    return _adf4377.adf4377_init(init_param)
+def adf4377_init(device, init_param):
+    return _adf4377.adf4377_init(device, init_param)
 
 def adf4377_remove(dev):
     return _adf4377.adf4377_remove(dev)
+
+def get_linux_spi_ops():
+    return _adf4377.get_linux_spi_ops()
 

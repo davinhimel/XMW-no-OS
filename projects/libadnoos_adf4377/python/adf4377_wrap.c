@@ -2982,15 +2982,15 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_adf4377_init_param swig_types[1]
 #define SWIGTYPE_p_bool swig_types[2]
 #define SWIGTYPE_p_char swig_types[3]
-#define SWIGTYPE_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t swig_types[4]
-#define SWIGTYPE_p_f_p_struct_no_os_spi_desc__int32_t swig_types[5]
-#define SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t swig_types[6]
-#define SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t swig_types[7]
-#define SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t swig_types[8]
+#define SWIGTYPE_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int swig_types[4]
+#define SWIGTYPE_p_f_p_struct_no_os_spi_desc__int swig_types[5]
+#define SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int swig_types[6]
+#define SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int swig_types[7]
+#define SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int swig_types[8]
 #define SWIGTYPE_p_f_p_void__void swig_types[9]
-#define SWIGTYPE_p_int32_t swig_types[10]
-#define SWIGTYPE_p_int8_t swig_types[11]
-#define SWIGTYPE_p_linux_spi_init_param swig_types[12]
+#define SWIGTYPE_p_int swig_types[10]
+#define SWIGTYPE_p_linux_spi_init_param swig_types[11]
+#define SWIGTYPE_p_long_long swig_types[12]
 #define SWIGTYPE_p_no_os_gpio_desc swig_types[13]
 #define SWIGTYPE_p_no_os_gpio_init_param swig_types[14]
 #define SWIGTYPE_p_no_os_platform_spi_delays swig_types[15]
@@ -3001,13 +3001,15 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_no_os_spibus_desc swig_types[20]
 #define SWIGTYPE_p_p_adf4377_dev swig_types[21]
 #define SWIGTYPE_p_p_no_os_spi_desc swig_types[22]
-#define SWIGTYPE_p_uint16_t swig_types[23]
-#define SWIGTYPE_p_uint32_t swig_types[24]
-#define SWIGTYPE_p_uint64_t swig_types[25]
-#define SWIGTYPE_p_uint8_t swig_types[26]
-#define SWIGTYPE_p_void swig_types[27]
-static swig_type_info *swig_types[29];
-static swig_module_info swig_module = {swig_types, 28, 0, 0, 0, 0};
+#define SWIGTYPE_p_short swig_types[23]
+#define SWIGTYPE_p_signed_char swig_types[24]
+#define SWIGTYPE_p_unsigned_char swig_types[25]
+#define SWIGTYPE_p_unsigned_int swig_types[26]
+#define SWIGTYPE_p_unsigned_long_long swig_types[27]
+#define SWIGTYPE_p_unsigned_short swig_types[28]
+#define SWIGTYPE_p_void swig_types[29]
+static swig_type_info *swig_types[31];
+static swig_module_info swig_module = {swig_types, 30, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3034,8 +3036,12 @@ static swig_module_info swig_module = {swig_types, 28, 0, 0, 0, 0};
 #define SWIG_as_voidptrptr(a) ((void)SWIG_as_voidptr(*a),(void**)(a)) 
 
 
-#include "../../../drivers/frequency/adf4377/adf4377.h"
+#include "../../../include/no_os_spi.h"
 #include "../../../drivers/platform/linux/linux_spi.h"
+#include "../../../drivers/frequency/adf4377/adf4377.h"
+
+
+#include <stdint.h>		// Use the C99 official header
 
 
 SWIGINTERNINLINE PyObject*
@@ -3138,6 +3144,111 @@ SWIG_CanCastAsInteger(double *d, double min, double max) {
 
 
 SWIGINTERN int
+SWIG_AsVal_unsigned_SS_long (PyObject *obj, unsigned long *val) 
+{
+#if PY_VERSION_HEX < 0x03000000
+  if (PyInt_Check(obj)) {
+    long v = PyInt_AsLong(obj);
+    if (v >= 0) {
+      if (val) *val = v;
+      return SWIG_OK;
+    } else {
+      return SWIG_OverflowError;
+    }
+  } else
+#endif
+  if (PyLong_Check(obj)) {
+    unsigned long v = PyLong_AsUnsignedLong(obj);
+    if (!PyErr_Occurred()) {
+      if (val) *val = v;
+      return SWIG_OK;
+    } else {
+      PyErr_Clear();
+      return SWIG_OverflowError;
+    }
+  }
+#ifdef SWIG_PYTHON_CAST_MODE
+  {
+    int dispatch = 0;
+    unsigned long v = PyLong_AsUnsignedLong(obj);
+    if (!PyErr_Occurred()) {
+      if (val) *val = v;
+      return SWIG_AddCast(SWIG_OK);
+    } else {
+      PyErr_Clear();
+    }
+    if (!dispatch) {
+      double d;
+      int res = SWIG_AddCast(SWIG_AsVal_double (obj,&d));
+      if (SWIG_IsOK(res) && SWIG_CanCastAsInteger(&d, 0, ULONG_MAX)) {
+	if (val) *val = (unsigned long)(d);
+	return res;
+      }
+    }
+  }
+#endif
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN int
+SWIG_AsVal_unsigned_SS_int (PyObject * obj, unsigned int *val)
+{
+  unsigned long v;
+  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v > UINT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = (unsigned int)(v);
+    }
+  }  
+  return res;
+}
+
+
+SWIGINTERNINLINE PyObject*
+  SWIG_From_unsigned_SS_int  (unsigned int value)
+{
+  return PyInt_FromSize_t((size_t) value);
+}
+
+
+SWIGINTERN int
+SWIG_AsVal_unsigned_SS_char (PyObject * obj, unsigned char *val)
+{
+  unsigned long v;
+  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v > UCHAR_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = (unsigned char)(v);
+    }
+  }  
+  return res;
+}
+
+
+  #define SWIG_From_long   PyInt_FromLong 
+
+
+SWIGINTERNINLINE PyObject* 
+SWIG_From_unsigned_SS_long  (unsigned long value)
+{
+  return (value > LONG_MAX) ?
+    PyLong_FromUnsignedLong(value) : PyInt_FromLong((long)(value));
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_unsigned_SS_char  (unsigned char value)
+{    
+  return SWIG_From_unsigned_SS_long  (value);
+}
+
+
+SWIGINTERN int
 SWIG_AsVal_long (PyObject *obj, long* val)
 {
 #if PY_VERSION_HEX < 0x03000000
@@ -3196,8 +3307,19 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 }
 
 
-const struct no_os_spi_platform_ops* get_linux_spi_ops(void) {
-  return &linux_spi_ops;
+SWIGINTERN int
+SWIG_AsVal_unsigned_SS_short (PyObject * obj, unsigned short *val)
+{
+  unsigned long v;
+  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v > USHRT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = (unsigned short)(v);
+    }
+  }  
+  return res;
 }
 
 
@@ -3214,13 +3336,6 @@ SWIG_From_unsigned_SS_long_SS_long  (unsigned long long value)
     PyLong_FromUnsignedLongLong(value) : PyInt_FromLong((long)(value));
 }
 #endif
-
-
-SWIGINTERNINLINE PyObject*
-  SWIG_From_unsigned_SS_int  (unsigned int value)
-{
-  return PyInt_FromSize_t((size_t) value);
-}
 
 
 SWIGINTERN int
@@ -3243,6 +3358,84 @@ SWIGINTERNINLINE PyObject*
   return PyBool_FromLong(value ? 1 : 0);
 }
 
+
+#ifdef SWIG_LONG_LONG_AVAILABLE
+SWIGINTERN int
+SWIG_AsVal_unsigned_SS_long_SS_long (PyObject *obj, unsigned long long *val)
+{
+  int res = SWIG_TypeError;
+  if (PyLong_Check(obj)) {
+    unsigned long long v = PyLong_AsUnsignedLongLong(obj);
+    if (!PyErr_Occurred()) {
+      if (val) *val = v;
+      return SWIG_OK;
+    } else {
+      PyErr_Clear();
+      res = SWIG_OverflowError;
+    }
+  } else {
+    unsigned long v;
+    res = SWIG_AsVal_unsigned_SS_long (obj,&v);
+    if (SWIG_IsOK(res)) {
+      if (val) *val = v;
+      return res;
+    }
+  }
+#ifdef SWIG_PYTHON_CAST_MODE
+  {
+    const double mant_max = 1LL << DBL_MANT_DIG;
+    double d;
+    res = SWIG_AsVal_double (obj,&d);
+    if (SWIG_IsOK(res) && !SWIG_CanCastAsInteger(&d, 0, mant_max))
+      return SWIG_OverflowError;
+    if (SWIG_IsOK(res) && SWIG_CanCastAsInteger(&d, 0, mant_max)) {
+      if (val) *val = (unsigned long long)(d);
+      return SWIG_AddCast(res);
+    }
+    res = SWIG_TypeError;
+  }
+#endif
+  return res;
+}
+#endif
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_unsigned_SS_short  (unsigned short value)
+{    
+  return SWIG_From_unsigned_SS_long  (value);
+}
+
+SWIGINTERN struct adf4377_dev *adf4377_dev_init(struct adf4377_init_param *param){
+        struct adf4377_dev *dev = NULL;
+        int ret = adf4377_init(&dev, param);
+        if (ret != 0) {
+            PyErr_Format(PyExc_RuntimeError, "adf4377_init failed (%d)", ret);
+            return NULL;
+        }
+        return dev;
+    }
+
+SWIGINTERN int
+SWIG_AsVal_signed_SS_char (PyObject * obj, signed char *val)
+{
+  long v;
+  int res = SWIG_AsVal_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v < SCHAR_MIN || v > SCHAR_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = (signed char)(v);
+    }
+  }  
+  return res;
+}
+
+
+const struct no_os_spi_platform_ops* get_linux_spi_ops(void) {
+    return &linux_spi_ops;
+}
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -3262,7 +3455,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_tx_buff_set(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_msg_tx_buff_set" "', argument " "1"" of type '" "struct no_os_spi_msg *""'"); 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_uint8_t, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_unsigned_char, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "no_os_spi_msg_tx_buff_set" "', argument " "2"" of type '" "uint8_t *""'"); 
   }
@@ -3291,7 +3484,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_tx_buff_get(PyObject *self, PyObject *a
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
   result = (uint8_t *) ((arg1)->tx_buff);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_uint8_t, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3314,7 +3507,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_rx_buff_set(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_msg_rx_buff_set" "', argument " "1"" of type '" "struct no_os_spi_msg *""'"); 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_uint8_t, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_unsigned_char, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "no_os_spi_msg_rx_buff_set" "', argument " "2"" of type '" "uint8_t *""'"); 
   }
@@ -3343,7 +3536,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_rx_buff_get(PyObject *self, PyObject *a
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
   result = (uint8_t *) ((arg1)->rx_buff);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_uint8_t, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_unsigned_char, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3365,9 +3558,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_bytes_number_set(PyObject *self, PyObje
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->bytes_number = arg2;
   resultobj = SWIG_Py_Void();
@@ -3392,8 +3583,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_bytes_number_get(PyObject *self, PyObje
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_msg_bytes_number_get" "', argument " "1"" of type '" "struct no_os_spi_msg *""'"); 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
-  result =  ((arg1)->bytes_number);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->bytes_number);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3415,9 +3606,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_change_set(PyObject *self, PyObject 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cs_change = arg2;
   resultobj = SWIG_Py_Void();
@@ -3442,8 +3631,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_change_get(PyObject *self, PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_msg_cs_change_get" "', argument " "1"" of type '" "struct no_os_spi_msg *""'"); 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
-  result =  ((arg1)->cs_change);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->cs_change);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3465,9 +3654,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_change_delay_set(PyObject *self, PyO
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cs_change_delay = arg2;
   resultobj = SWIG_Py_Void();
@@ -3492,8 +3679,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_change_delay_get(PyObject *self, PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_msg_cs_change_delay_get" "', argument " "1"" of type '" "struct no_os_spi_msg *""'"); 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
-  result =  ((arg1)->cs_change_delay);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->cs_change_delay);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3515,9 +3702,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_delay_first_set(PyObject *self, PyOb
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cs_delay_first = arg2;
   resultobj = SWIG_Py_Void();
@@ -3542,8 +3727,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_delay_first_get(PyObject *self, PyOb
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_msg_cs_delay_first_get" "', argument " "1"" of type '" "struct no_os_spi_msg *""'"); 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
-  result =  ((arg1)->cs_delay_first);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->cs_delay_first);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3565,9 +3750,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_delay_last_set(PyObject *self, PyObj
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cs_delay_last = arg2;
   resultobj = SWIG_Py_Void();
@@ -3592,8 +3775,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_msg_cs_delay_last_get(PyObject *self, PyObj
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_msg_cs_delay_last_get" "', argument " "1"" of type '" "struct no_os_spi_msg *""'"); 
   }
   arg1 = (struct no_os_spi_msg *)(argp1);
-  result =  ((arg1)->cs_delay_last);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->cs_delay_last);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3661,9 +3844,7 @@ SWIGINTERN PyObject *_wrap_no_os_platform_spi_delays_cs_delay_first_set(PyObject
   }
   arg1 = (struct no_os_platform_spi_delays *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cs_delay_first = arg2;
   resultobj = SWIG_Py_Void();
@@ -3688,8 +3869,8 @@ SWIGINTERN PyObject *_wrap_no_os_platform_spi_delays_cs_delay_first_get(PyObject
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_platform_spi_delays_cs_delay_first_get" "', argument " "1"" of type '" "struct no_os_platform_spi_delays *""'"); 
   }
   arg1 = (struct no_os_platform_spi_delays *)(argp1);
-  result =  ((arg1)->cs_delay_first);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->cs_delay_first);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3711,9 +3892,7 @@ SWIGINTERN PyObject *_wrap_no_os_platform_spi_delays_cs_delay_last_set(PyObject 
   }
   arg1 = (struct no_os_platform_spi_delays *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cs_delay_last = arg2;
   resultobj = SWIG_Py_Void();
@@ -3738,8 +3917,8 @@ SWIGINTERN PyObject *_wrap_no_os_platform_spi_delays_cs_delay_last_get(PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_platform_spi_delays_cs_delay_last_get" "', argument " "1"" of type '" "struct no_os_platform_spi_delays *""'"); 
   }
   arg1 = (struct no_os_platform_spi_delays *)(argp1);
-  result =  ((arg1)->cs_delay_last);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->cs_delay_last);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3807,9 +3986,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_init_param_device_id_set(PyObject *self, Py
   }
   arg1 = (struct no_os_spi_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->device_id = arg2;
   resultobj = SWIG_Py_Void();
@@ -3834,8 +4011,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_init_param_device_id_get(PyObject *self, Py
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_init_param_device_id_get" "', argument " "1"" of type '" "struct no_os_spi_init_param *""'"); 
   }
   arg1 = (struct no_os_spi_init_param *)(argp1);
-  result =  ((arg1)->device_id);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->device_id);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3857,9 +4034,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_init_param_max_speed_hz_set(PyObject *self,
   }
   arg1 = (struct no_os_spi_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->max_speed_hz = arg2;
   resultobj = SWIG_Py_Void();
@@ -3884,8 +4059,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_init_param_max_speed_hz_get(PyObject *self,
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_init_param_max_speed_hz_get" "', argument " "1"" of type '" "struct no_os_spi_init_param *""'"); 
   }
   arg1 = (struct no_os_spi_init_param *)(argp1);
-  result =  ((arg1)->max_speed_hz);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->max_speed_hz);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -3907,9 +4082,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_init_param_chip_select_set(PyObject *self, 
   }
   arg1 = (struct no_os_spi_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->chip_select = arg2;
   resultobj = SWIG_Py_Void();
@@ -3934,8 +4107,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_init_param_chip_select_get(PyObject *self, 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_init_param_chip_select_get" "', argument " "1"" of type '" "struct no_os_spi_init_param *""'"); 
   }
   arg1 = (struct no_os_spi_init_param *)(argp1);
-  result =  ((arg1)->chip_select);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->chip_select);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -4415,9 +4588,7 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_desc_slave_number_set(PyObject *self, Py
   }
   arg1 = (struct no_os_spibus_desc *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->slave_number = arg2;
   resultobj = SWIG_Py_Void();
@@ -4442,8 +4613,8 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_desc_slave_number_get(PyObject *self, Py
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spibus_desc_slave_number_get" "', argument " "1"" of type '" "struct no_os_spibus_desc *""'"); 
   }
   arg1 = (struct no_os_spibus_desc *)(argp1);
-  result =  ((arg1)->slave_number);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->slave_number);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -4465,9 +4636,7 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_desc_device_id_set(PyObject *self, PyObj
   }
   arg1 = (struct no_os_spibus_desc *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->device_id = arg2;
   resultobj = SWIG_Py_Void();
@@ -4492,8 +4661,8 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_desc_device_id_get(PyObject *self, PyObj
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spibus_desc_device_id_get" "', argument " "1"" of type '" "struct no_os_spibus_desc *""'"); 
   }
   arg1 = (struct no_os_spibus_desc *)(argp1);
-  result =  ((arg1)->device_id);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->device_id);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -4515,9 +4684,7 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_desc_max_speed_hz_set(PyObject *self, Py
   }
   arg1 = (struct no_os_spibus_desc *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->max_speed_hz = arg2;
   resultobj = SWIG_Py_Void();
@@ -4542,8 +4709,8 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_desc_max_speed_hz_get(PyObject *self, Py
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spibus_desc_max_speed_hz_get" "', argument " "1"" of type '" "struct no_os_spibus_desc *""'"); 
   }
   arg1 = (struct no_os_spibus_desc *)(argp1);
-  result =  ((arg1)->max_speed_hz);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->max_speed_hz);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -4921,9 +5088,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_desc_device_id_set(PyObject *self, PyObject
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->device_id = arg2;
   resultobj = SWIG_Py_Void();
@@ -4948,8 +5113,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_desc_device_id_get(PyObject *self, PyObject
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_desc_device_id_get" "', argument " "1"" of type '" "struct no_os_spi_desc *""'"); 
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
-  result =  ((arg1)->device_id);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->device_id);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -4971,9 +5136,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_desc_max_speed_hz_set(PyObject *self, PyObj
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->max_speed_hz = arg2;
   resultobj = SWIG_Py_Void();
@@ -4998,8 +5161,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_desc_max_speed_hz_get(PyObject *self, PyObj
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_desc_max_speed_hz_get" "', argument " "1"" of type '" "struct no_os_spi_desc *""'"); 
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
-  result =  ((arg1)->max_speed_hz);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->max_speed_hz);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -5021,9 +5184,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_desc_chip_select_set(PyObject *self, PyObje
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->chip_select = arg2;
   resultobj = SWIG_Py_Void();
@@ -5048,8 +5209,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_desc_chip_select_get(PyObject *self, PyObje
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_desc_chip_select_get" "', argument " "1"" of type '" "struct no_os_spi_desc *""'"); 
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
-  result =  ((arg1)->chip_select);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->chip_select);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -5479,7 +5640,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_init_set(PyObject *self, PyObj
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int);
     if (!SWIG_IsOK(res)) {
       SWIG_exception_fail(SWIG_ArgError(res), "in method '" "no_os_spi_platform_ops_init_set" "', argument " "2"" of type '" "int32_t (*)(struct no_os_spi_desc **,struct no_os_spi_init_param const *)""'"); 
     }
@@ -5508,7 +5669,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_init_get(PyObject *self, PyObj
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   result = (int32_t (*)(struct no_os_spi_desc **,struct no_os_spi_init_param const *)) ((arg1)->init);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int);
   return resultobj;
 fail:
   return NULL;
@@ -5530,7 +5691,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_write_and_read_set(PyObject *s
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int);
     if (!SWIG_IsOK(res)) {
       SWIG_exception_fail(SWIG_ArgError(res), "in method '" "no_os_spi_platform_ops_write_and_read_set" "', argument " "2"" of type '" "int32_t (*)(struct no_os_spi_desc *,uint8_t *,uint16_t)""'"); 
     }
@@ -5559,7 +5720,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_write_and_read_get(PyObject *s
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   result = (int32_t (*)(struct no_os_spi_desc *,uint8_t *,uint16_t)) ((arg1)->write_and_read);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int);
   return resultobj;
 fail:
   return NULL;
@@ -5581,7 +5742,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_set(PyObject *self, P
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int);
     if (!SWIG_IsOK(res)) {
       SWIG_exception_fail(SWIG_ArgError(res), "in method '" "no_os_spi_platform_ops_transfer_set" "', argument " "2"" of type '" "int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t)""'"); 
     }
@@ -5610,7 +5771,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_get(PyObject *self, P
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   result = (int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t)) ((arg1)->transfer);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int);
   return resultobj;
 fail:
   return NULL;
@@ -5632,7 +5793,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_dma_set(PyObject *sel
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int);
     if (!SWIG_IsOK(res)) {
       SWIG_exception_fail(SWIG_ArgError(res), "in method '" "no_os_spi_platform_ops_transfer_dma_set" "', argument " "2"" of type '" "int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t)""'"); 
     }
@@ -5661,7 +5822,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_dma_get(PyObject *sel
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   result = (int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t)) ((arg1)->transfer_dma);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int);
   return resultobj;
 fail:
   return NULL;
@@ -5683,7 +5844,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_dma_async_set(PyObjec
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int);
     if (!SWIG_IsOK(res)) {
       SWIG_exception_fail(SWIG_ArgError(res), "in method '" "no_os_spi_platform_ops_transfer_dma_async_set" "', argument " "2"" of type '" "int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t,void (*)(void *),void *)""'"); 
     }
@@ -5712,7 +5873,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_dma_async_get(PyObjec
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   result = (int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t,void (*)(void *),void *)) ((arg1)->transfer_dma_async);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int);
   return resultobj;
 fail:
   return NULL;
@@ -5734,7 +5895,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_remove_set(PyObject *self, PyO
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int32_t);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int);
     if (!SWIG_IsOK(res)) {
       SWIG_exception_fail(SWIG_ArgError(res), "in method '" "no_os_spi_platform_ops_remove_set" "', argument " "2"" of type '" "int32_t (*)(struct no_os_spi_desc *)""'"); 
     }
@@ -5763,7 +5924,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_remove_get(PyObject *self, PyO
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   result = (int32_t (*)(struct no_os_spi_desc *)) ((arg1)->remove);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int32_t);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int);
   return resultobj;
 fail:
   return NULL;
@@ -5785,7 +5946,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_abort_set(PyObject *s
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   {
-    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int32_t);
+    int res = SWIG_ConvertFunctionPtr(swig_obj[1], (void**)(&arg2), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int);
     if (!SWIG_IsOK(res)) {
       SWIG_exception_fail(SWIG_ArgError(res), "in method '" "no_os_spi_platform_ops_transfer_abort_set" "', argument " "2"" of type '" "int32_t (*)(struct no_os_spi_desc *)""'"); 
     }
@@ -5814,7 +5975,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_platform_ops_transfer_abort_get(PyObject *s
   }
   arg1 = (struct no_os_spi_platform_ops *)(argp1);
   result = (int32_t (*)(struct no_os_spi_desc *)) ((arg1)->transfer_abort);
-  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int32_t);
+  resultobj = SWIG_NewFunctionPtrObj((void *)(result), SWIGTYPE_p_f_p_struct_no_os_spi_desc__int);
   return resultobj;
 fail:
   return NULL;
@@ -5889,10 +6050,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_init(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "no_os_spi_init" "', argument " "2"" of type '" "struct no_os_spi_init_param const *""'"); 
   }
   arg2 = (struct no_os_spi_init_param *)(argp2);
-  result = no_os_spi_init(arg1,(struct no_os_spi_init_param const *)arg2);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)no_os_spi_init(arg1,(struct no_os_spi_init_param const *)arg2);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -5914,10 +6073,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_remove(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_remove" "', argument " "1"" of type '" "struct no_os_spi_desc *""'"); 
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
-  result = no_os_spi_remove(arg1);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)no_os_spi_remove(arg1);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -5945,17 +6102,12 @@ SWIGINTERN PyObject *_wrap_no_os_spi_write_and_read(PyObject *self, PyObject *ar
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg3 = (uint16_t)(v & 0xFFFF);
+    arg3 = (uint16_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
-  result = no_os_spi_write_and_read(arg1,arg2,arg3);
+  result = (int32_t)no_os_spi_write_and_read(arg1,arg2,arg3);
+  resultobj = SWIG_From_int((int)(result));
   {
-    resultobj = PyLong_FromLong((long)result);
-  }
-  {
-    PyObject *o = PyLong_FromLong((long)(unsigned char)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_unsigned_SS_char(*arg2));
   }
   return resultobj;
 fail:
@@ -5987,14 +6139,10 @@ SWIGINTERN PyObject *_wrap_no_os_spi_transfer(PyObject *self, PyObject *args) {
   }
   arg2 = (struct no_os_spi_msg *)(argp2);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[2]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg3 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg3 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[2]); 
   }
-  result = no_os_spi_transfer(arg1,arg2,arg3);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)no_os_spi_transfer(arg1,arg2,arg3);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6025,14 +6173,10 @@ SWIGINTERN PyObject *_wrap_no_os_spi_transfer_dma(PyObject *self, PyObject *args
   }
   arg2 = (struct no_os_spi_msg *)(argp2);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[2]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg3 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg3 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[2]); 
   }
-  result = no_os_spi_transfer_dma(arg1,arg2,arg3);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)no_os_spi_transfer_dma(arg1,arg2,arg3);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6066,9 +6210,7 @@ SWIGINTERN PyObject *_wrap_no_os_spi_transfer_dma_async(PyObject *self, PyObject
   }
   arg2 = (struct no_os_spi_msg *)(argp2);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[2]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg3 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg3 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[2]); 
   }
   {
     int res = SWIG_ConvertFunctionPtr(swig_obj[3], (void**)(&arg4), SWIGTYPE_p_f_p_void__void);
@@ -6080,10 +6222,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_transfer_dma_async(PyObject *self, PyObject
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "no_os_spi_transfer_dma_async" "', argument " "5"" of type '" "void *""'"); 
   }
-  result = no_os_spi_transfer_dma_async(arg1,arg2,arg3,arg4,arg5);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)no_os_spi_transfer_dma_async(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6105,10 +6245,8 @@ SWIGINTERN PyObject *_wrap_no_os_spi_transfer_abort(PyObject *self, PyObject *ar
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spi_transfer_abort" "', argument " "1"" of type '" "struct no_os_spi_desc *""'"); 
   }
   arg1 = (struct no_os_spi_desc *)(argp1);
-  result = no_os_spi_transfer_abort(arg1);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)no_os_spi_transfer_abort(arg1);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6130,10 +6268,8 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_init(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "no_os_spibus_init" "', argument " "1"" of type '" "struct no_os_spi_init_param const *""'"); 
   }
   arg1 = (struct no_os_spi_init_param *)(argp1);
-  result = no_os_spibus_init((struct no_os_spi_init_param const *)arg1);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)no_os_spibus_init((struct no_os_spi_init_param const *)arg1);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6148,9 +6284,7 @@ SWIGINTERN PyObject *_wrap_no_os_spibus_remove(PyObject *self, PyObject *args) {
   if (!args) SWIG_fail;
   swig_obj[0] = args;
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[0]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg1 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg1 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[0]); 
   }
   no_os_spibus_remove(arg1);
   resultobj = SWIG_Py_Void();
@@ -6175,9 +6309,7 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_device_id_set(PyObject *self, Py
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->device_id = arg2;
   resultobj = SWIG_Py_Void();
@@ -6202,8 +6334,8 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_device_id_get(PyObject *self, Py
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "linux_spi_init_param_device_id_get" "', argument " "1"" of type '" "struct linux_spi_init_param *""'"); 
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
-  result =  ((arg1)->device_id);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->device_id);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6225,9 +6357,7 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_chip_select_set(PyObject *self, 
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->chip_select = arg2;
   resultobj = SWIG_Py_Void();
@@ -6252,8 +6382,8 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_chip_select_get(PyObject *self, 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "linux_spi_init_param_chip_select_get" "', argument " "1"" of type '" "struct linux_spi_init_param *""'"); 
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
-  result =  ((arg1)->chip_select);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->chip_select);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6275,9 +6405,7 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_max_speed_hz_set(PyObject *self,
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->max_speed_hz = arg2;
   resultobj = SWIG_Py_Void();
@@ -6302,8 +6430,8 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_max_speed_hz_get(PyObject *self,
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "linux_spi_init_param_max_speed_hz_get" "', argument " "1"" of type '" "struct linux_spi_init_param *""'"); 
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
-  result =  ((arg1)->max_speed_hz);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->max_speed_hz);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6325,9 +6453,7 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_mode_set(PyObject *self, PyObjec
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->mode = arg2;
   resultobj = SWIG_Py_Void();
@@ -6352,8 +6478,8 @@ SWIGINTERN PyObject *_wrap_linux_spi_init_param_mode_get(PyObject *self, PyObjec
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "linux_spi_init_param_mode_get" "', argument " "1"" of type '" "struct linux_spi_init_param *""'"); 
   }
   arg1 = (struct linux_spi_init_param *)(argp1);
-  result =  ((arg1)->mode);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->mode);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6417,19 +6543,6 @@ SWIGINTERN PyObject *Swig_var_linux_spi_ops_get(void) {
   
   pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(&linux_spi_ops), SWIGTYPE_p_no_os_spi_platform_ops,  0 );
   return pyobj;
-}
-
-
-SWIGINTERN PyObject *_wrap_get_linux_spi_ops(PyObject *self, PyObject *args) {
-  PyObject *resultobj = 0;
-  struct no_os_spi_platform_ops *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args, "get_linux_spi_ops", 0, 0, 0)) SWIG_fail;
-  result = (struct no_os_spi_platform_ops *)get_linux_spi_ops();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_no_os_spi_platform_ops, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
 }
 
 
@@ -6699,6 +6812,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_spi4wire_set(PyObject *self, PyObj
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
   if (!SWIG_Python_UnpackTuple(args, "adf4377_init_param_spi4wire_set", 2, 2, swig_obj)) SWIG_fail;
@@ -6707,14 +6822,11 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_spi4wire_set(PyObject *self, PyObj
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_spi4wire_set" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  {
-    if (swig_obj[1] == Py_None) {
-      arg2 = false; 
-    }
-    else {
-      arg2 = (bool) PyObject_IsTrue(swig_obj[1]); 
-    }
-  }
+  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "adf4377_init_param_spi4wire_set" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = (bool)(val2);
   if (arg1) (arg1)->spi4wire = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -6761,8 +6873,7 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_clkin_freq_set(PyObject *self, PyO
   }
   arg1 = (struct adf4377_init_param *)(argp1);
   {
-    arg2 = (uint64_t) PyLong_AsUnsignedLongLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
+    arg2 = (uint64_t)PyLong_AsUnsignedLongLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->clkin_freq = arg2;
   resultobj = SWIG_Py_Void();
@@ -6787,8 +6898,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_clkin_freq_get(PyObject *self, PyO
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_clkin_freq_get" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  result =  ((arg1)->clkin_freq);
-  resultobj = SWIG_NewPointerObj((uint64_t *)memcpy((uint64_t *)calloc(1,sizeof(uint64_t)),&result,sizeof(uint64_t)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
+  result = (uint64_t) ((arg1)->clkin_freq);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6810,8 +6921,7 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_f_clk_set(PyObject *self, PyObject
   }
   arg1 = (struct adf4377_init_param *)(argp1);
   {
-    arg2 = (uint64_t) PyLong_AsUnsignedLongLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
+    arg2 = (uint64_t)PyLong_AsUnsignedLongLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->f_clk = arg2;
   resultobj = SWIG_Py_Void();
@@ -6836,8 +6946,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_f_clk_get(PyObject *self, PyObject
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_f_clk_get" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  result =  ((arg1)->f_clk);
-  resultobj = SWIG_NewPointerObj((uint64_t *)memcpy((uint64_t *)calloc(1,sizeof(uint64_t)),&result,sizeof(uint64_t)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
+  result = (uint64_t) ((arg1)->f_clk);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6859,9 +6969,7 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_cp_i_set(PyObject *self, PyObject 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cp_i = arg2;
   resultobj = SWIG_Py_Void();
@@ -6886,8 +6994,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_cp_i_get(PyObject *self, PyObject 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_cp_i_get" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  result =  ((arg1)->cp_i);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->cp_i);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6909,9 +7017,7 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_muxout_select_set(PyObject *self, 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->muxout_select = arg2;
   resultobj = SWIG_Py_Void();
@@ -6936,8 +7042,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_muxout_select_get(PyObject *self, 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_muxout_select_get" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  result =  ((arg1)->muxout_select);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->muxout_select);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -6959,9 +7065,7 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_ref_doubler_en_set(PyObject *self,
   }
   arg1 = (struct adf4377_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->ref_doubler_en = arg2;
   resultobj = SWIG_Py_Void();
@@ -6986,8 +7090,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_ref_doubler_en_get(PyObject *self,
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_ref_doubler_en_get" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  result =  ((arg1)->ref_doubler_en);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->ref_doubler_en);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7009,9 +7113,7 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_clkout_op_set(PyObject *self, PyOb
   }
   arg1 = (struct adf4377_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->clkout_op = arg2;
   resultobj = SWIG_Py_Void();
@@ -7036,8 +7138,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_clkout_op_get(PyObject *self, PyOb
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_clkout_op_get" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  result =  ((arg1)->clkout_op);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->clkout_op);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7059,9 +7161,7 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_ref_div_factor_set(PyObject *self,
   }
   arg1 = (struct adf4377_init_param *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->ref_div_factor = arg2;
   resultobj = SWIG_Py_Void();
@@ -7086,8 +7186,8 @@ SWIGINTERN PyObject *_wrap_adf4377_init_param_ref_div_factor_get(PyObject *self,
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init_param_ref_div_factor_get" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg1 = (struct adf4377_init_param *)(argp1);
-  result =  ((arg1)->ref_div_factor);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->ref_div_factor);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7406,6 +7506,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_spi4wire_set(PyObject *self, PyObject *ar
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
   if (!SWIG_Python_UnpackTuple(args, "adf4377_dev_spi4wire_set", 2, 2, swig_obj)) SWIG_fail;
@@ -7414,14 +7516,11 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_spi4wire_set(PyObject *self, PyObject *ar
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_spi4wire_set" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  {
-    if (swig_obj[1] == Py_None) {
-      arg2 = false; 
-    }
-    else {
-      arg2 = (bool) PyObject_IsTrue(swig_obj[1]); 
-    }
-  }
+  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "adf4377_dev_spi4wire_set" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = (bool)(val2);
   if (arg1) (arg1)->spi4wire = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -7468,9 +7567,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_f_pfd_set(PyObject *self, PyObject *args)
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->f_pfd = arg2;
   resultobj = SWIG_Py_Void();
@@ -7495,8 +7592,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_f_pfd_get(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_f_pfd_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->f_pfd);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->f_pfd);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7518,8 +7615,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_f_clk_set(PyObject *self, PyObject *args)
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    arg2 = (uint64_t) PyLong_AsUnsignedLongLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
+    arg2 = (uint64_t)PyLong_AsUnsignedLongLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->f_clk = arg2;
   resultobj = SWIG_Py_Void();
@@ -7544,8 +7640,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_f_clk_get(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_f_clk_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->f_clk);
-  resultobj = SWIG_NewPointerObj((uint64_t *)memcpy((uint64_t *)calloc(1,sizeof(uint64_t)),&result,sizeof(uint64_t)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
+  result = (uint64_t) ((arg1)->f_clk);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7567,8 +7663,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_f_vco_set(PyObject *self, PyObject *args)
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    arg2 = (uint64_t) PyLong_AsUnsignedLongLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
+    arg2 = (uint64_t)PyLong_AsUnsignedLongLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->f_vco = arg2;
   resultobj = SWIG_Py_Void();
@@ -7593,8 +7688,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_f_vco_get(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_f_vco_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->f_vco);
-  resultobj = SWIG_NewPointerObj((uint64_t *)memcpy((uint64_t *)calloc(1,sizeof(uint64_t)),&result,sizeof(uint64_t)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
+  result = (uint64_t) ((arg1)->f_vco);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7616,8 +7711,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_clkin_freq_set(PyObject *self, PyObject *
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    arg2 = (uint64_t) PyLong_AsUnsignedLongLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
+    arg2 = (uint64_t)PyLong_AsUnsignedLongLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->clkin_freq = arg2;
   resultobj = SWIG_Py_Void();
@@ -7642,8 +7736,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_clkin_freq_get(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_clkin_freq_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->clkin_freq);
-  resultobj = SWIG_NewPointerObj((uint64_t *)memcpy((uint64_t *)calloc(1,sizeof(uint64_t)),&result,sizeof(uint64_t)), SWIGTYPE_p_uint64_t, SWIG_POINTER_OWN |  0 );
+  result = (uint64_t) ((arg1)->clkin_freq);
+  resultobj = SWIG_From_unsigned_SS_long_SS_long((unsigned long long)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7665,9 +7759,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_cp_i_set(PyObject *self, PyObject *args) 
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->cp_i = arg2;
   resultobj = SWIG_Py_Void();
@@ -7692,8 +7784,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_cp_i_get(PyObject *self, PyObject *args) 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_cp_i_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->cp_i);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->cp_i);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7715,9 +7807,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_muxout_default_set(PyObject *self, PyObje
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->muxout_default = arg2;
   resultobj = SWIG_Py_Void();
@@ -7742,8 +7832,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_muxout_default_get(PyObject *self, PyObje
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_muxout_default_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->muxout_default);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->muxout_default);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7765,9 +7855,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_ref_doubler_en_set(PyObject *self, PyObje
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->ref_doubler_en = arg2;
   resultobj = SWIG_Py_Void();
@@ -7792,8 +7880,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_ref_doubler_en_get(PyObject *self, PyObje
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_ref_doubler_en_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->ref_doubler_en);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->ref_doubler_en);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7815,9 +7903,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_ref_div_factor_set(PyObject *self, PyObje
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint32_t)(v & 0xFFFFFFFFUL);
+    arg2 = (uint32_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->ref_div_factor = arg2;
   resultobj = SWIG_Py_Void();
@@ -7842,8 +7928,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_ref_div_factor_get(PyObject *self, PyObje
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_ref_div_factor_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->ref_div_factor);
-  resultobj = SWIG_NewPointerObj((uint32_t *)memcpy((uint32_t *)calloc(1,sizeof(uint32_t)),&result,sizeof(uint32_t)), SWIGTYPE_p_uint32_t, SWIG_POINTER_OWN |  0 );
+  result = (uint32_t) ((arg1)->ref_div_factor);
+  resultobj = SWIG_From_unsigned_SS_int((unsigned int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7865,9 +7951,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_clkout_div_sel_set(PyObject *self, PyObje
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->clkout_div_sel = arg2;
   resultobj = SWIG_Py_Void();
@@ -7892,8 +7976,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_clkout_div_sel_get(PyObject *self, PyObje
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_clkout_div_sel_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->clkout_div_sel);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->clkout_div_sel);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7915,9 +7999,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_n_int_set(PyObject *self, PyObject *args)
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint16_t)(v & 0xFFFF);
+    arg2 = (uint16_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->n_int = arg2;
   resultobj = SWIG_Py_Void();
@@ -7942,8 +8024,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_n_int_get(PyObject *self, PyObject *args)
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_n_int_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->n_int);
-  resultobj = SWIG_NewPointerObj((uint16_t *)memcpy((uint16_t *)calloc(1,sizeof(uint16_t)),&result,sizeof(uint16_t)), SWIGTYPE_p_uint16_t, SWIG_POINTER_OWN |  0 );
+  result = (uint16_t) ((arg1)->n_int);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
   return resultobj;
 fail:
   return NULL;
@@ -7965,9 +8047,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_clkout_op_set(PyObject *self, PyObject *a
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->clkout_op = arg2;
   resultobj = SWIG_Py_Void();
@@ -7992,8 +8072,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_clkout_op_get(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_clkout_op_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->clkout_op);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->clkout_op);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -8015,9 +8095,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_bleed_word_set(PyObject *self, PyObject *
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint16_t)(v & 0xFFFF);
+    arg2 = (uint16_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->bleed_word = arg2;
   resultobj = SWIG_Py_Void();
@@ -8042,8 +8120,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_bleed_word_get(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_bleed_word_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->bleed_word);
-  resultobj = SWIG_NewPointerObj((uint16_t *)memcpy((uint16_t *)calloc(1,sizeof(uint16_t)),&result,sizeof(uint16_t)), SWIGTYPE_p_uint16_t, SWIG_POINTER_OWN |  0 );
+  result = (uint16_t) ((arg1)->bleed_word);
+  resultobj = SWIG_From_unsigned_SS_short((unsigned short)(result));
   return resultobj;
 fail:
   return NULL;
@@ -8065,9 +8143,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_sr_del_adj_set(PyObject *self, PyObject *
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->sr_del_adj = arg2;
   resultobj = SWIG_Py_Void();
@@ -8092,8 +8168,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_sr_del_adj_get(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_sr_del_adj_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->sr_del_adj);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->sr_del_adj);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -8115,9 +8191,7 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_sr_inv_set(PyObject *self, PyObject *args
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   if (arg1) (arg1)->sr_inv = arg2;
   resultobj = SWIG_Py_Void();
@@ -8142,8 +8216,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_sr_inv_get(PyObject *self, PyObject *args
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_sr_inv_get" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result =  ((arg1)->sr_inv);
-  resultobj = SWIG_NewPointerObj((uint8_t *)memcpy((uint8_t *)calloc(1,sizeof(uint8_t)),&result,sizeof(uint8_t)), SWIGTYPE_p_uint8_t, SWIG_POINTER_OWN |  0 );
+  result = (uint8_t) ((arg1)->sr_inv);
+  resultobj = SWIG_From_unsigned_SS_char((unsigned char)(result));
   return resultobj;
 fail:
   return NULL;
@@ -8156,6 +8230,8 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_sysrefout_set(PyObject *self, PyObject *a
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
   if (!SWIG_Python_UnpackTuple(args, "adf4377_dev_sysrefout_set", 2, 2, swig_obj)) SWIG_fail;
@@ -8164,14 +8240,11 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_sysrefout_set(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_sysrefout_set" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  {
-    if (swig_obj[1] == Py_None) {
-      arg2 = false; 
-    }
-    else {
-      arg2 = (bool) PyObject_IsTrue(swig_obj[1]); 
-    }
-  }
+  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "adf4377_dev_sysrefout_set" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = (bool)(val2);
   if (arg1) (arg1)->sysrefout = arg2;
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -8197,6 +8270,29 @@ SWIGINTERN PyObject *_wrap_adf4377_dev_sysrefout_get(PyObject *self, PyObject *a
   arg1 = (struct adf4377_dev *)(argp1);
   result = (bool) ((arg1)->sysrefout);
   resultobj = SWIG_From_bool((bool)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_adf4377_dev_init(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct adf4377_init_param *arg1 = (struct adf4377_init_param *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  struct adf4377_dev *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_init_param, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_dev_init" "', argument " "1"" of type '" "struct adf4377_init_param *""'"); 
+  }
+  arg1 = (struct adf4377_init_param *)(argp1);
+  result = (struct adf4377_dev *)adf4377_dev_init(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_adf4377_dev, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -8266,14 +8362,10 @@ SWIGINTERN PyObject *_wrap_adf4377_spi_write(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[2]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg3 = (uint8_t)(v & 0xFF);
+    arg3 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[2]); 
   }
   result = (int)adf4377_spi_write(arg1,arg2,arg3);
   resultobj = SWIG_From_int((int)(result));
@@ -8301,19 +8393,13 @@ SWIGINTERN PyObject *_wrap_adf4377_spi_update_bit(PyObject *self, PyObject *args
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint16_t)(v & 0xFFFF);
+    arg2 = (uint16_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[2]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg3 = (uint8_t)(v & 0xFF);
+    arg3 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[2]); 
   }
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[3]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg4 = (uint8_t)(v & 0xFF);
+    arg4 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[3]); 
   }
   result = (int)adf4377_spi_update_bit(arg1,arg2,arg3,arg4);
   resultobj = SWIG_From_int((int)(result));
@@ -8344,15 +8430,12 @@ SWIGINTERN PyObject *_wrap_adf4377_spi_read(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   result = (int)adf4377_spi_read(arg1,arg2,arg3);
   resultobj = SWIG_From_int((int)(result));
   {
-    PyObject *o = PyLong_FromLong((long)(unsigned char)(*arg3));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_unsigned_SS_char(*arg3));
   }
   return resultobj;
 fail:
@@ -8376,8 +8459,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_ref_clk(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    arg2 = (uint64_t) PyLong_AsUnsignedLongLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
+    arg2 = (uint64_t)PyLong_AsUnsignedLongLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_ref_clk(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -8393,26 +8475,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_ref_clk(PyObject *self, PyObject *args) {
   uint64_t *arg2 = (uint64_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  uint64_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_ref_clk", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_ref_clk" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_unsigned_long_long, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_ref_clk" "', argument " "2"" of type '" "uint64_t *""'"); 
+  }
+  arg2 = (uint64_t *)(argp2);
   result = (int)adf4377_get_ref_clk(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromUnsignedLongLong(*arg2);
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8425,6 +8505,8 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_ref_doubler(PyObject *self, PyObject *
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   int result;
   
@@ -8434,14 +8516,11 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_ref_doubler(PyObject *self, PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_set_en_ref_doubler" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  {
-    if (swig_obj[1] == Py_None) {
-      arg2 = false; 
-    }
-    else {
-      arg2 = (bool) PyObject_IsTrue(swig_obj[1]); 
-    }
-  }
+  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "adf4377_set_en_ref_doubler" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = (bool)(val2);
   result = (int)adf4377_set_en_ref_doubler(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -8456,27 +8535,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_en_ref_doubler(PyObject *self, PyObject *
   bool *arg2 = (bool *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  bool temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_en_ref_doubler", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_en_ref_doubler" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_bool, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_en_ref_doubler" "', argument " "2"" of type '" "bool *""'"); 
+  }
+  arg2 = (bool *)(argp2);
   result = (int)adf4377_get_en_ref_doubler(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = (*arg2) ? Py_True : Py_False;
-    Py_INCREF(o);
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8499,9 +8575,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_ref_div(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    long v = PyLong_AsLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (int32_t) v;
+    arg2 = (int32_t)PyLong_AsLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_ref_div(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -8517,26 +8591,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_ref_div(PyObject *self, PyObject *args) {
   int32_t *arg2 = (int32_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int32_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_ref_div", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_ref_div" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_ref_div" "', argument " "2"" of type '" "int32_t *""'"); 
+  }
+  arg2 = (int32_t *)(argp2);
   result = (int)adf4377_get_ref_div(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8559,9 +8631,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_cp_i(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    long v = PyLong_AsLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (int32_t) v;
+    arg2 = (int32_t)PyLong_AsLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_cp_i(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -8577,26 +8647,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_cp_i(PyObject *self, PyObject *args) {
   int32_t *arg2 = (int32_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int32_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_cp_i", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_cp_i" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_cp_i" "', argument " "2"" of type '" "int32_t *""'"); 
+  }
+  arg2 = (int32_t *)(argp2);
   result = (int)adf4377_get_cp_i(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8619,9 +8687,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_bleed_word(PyObject *self, PyObject *args
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    long v = PyLong_AsLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (int32_t) v;
+    arg2 = (int32_t)PyLong_AsLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_bleed_word(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -8637,26 +8703,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_bleed_word(PyObject *self, PyObject *args
   int32_t *arg2 = (int32_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int32_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_bleed_word", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_bleed_word" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_bleed_word" "', argument " "2"" of type '" "int32_t *""'"); 
+  }
+  arg2 = (int32_t *)(argp2);
   result = (int)adf4377_get_bleed_word(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8679,8 +8743,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_rfout(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    arg2 = (uint64_t) PyLong_AsUnsignedLongLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
+    arg2 = (uint64_t)PyLong_AsUnsignedLongLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_rfout(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -8696,26 +8759,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_rfout(PyObject *self, PyObject *args) {
   uint64_t *arg2 = (uint64_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  uint64_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_rfout", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_rfout" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_unsigned_long_long, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_rfout" "', argument " "2"" of type '" "uint64_t *""'"); 
+  }
+  arg2 = (uint64_t *)(argp2);
   result = (int)adf4377_get_rfout(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromUnsignedLongLong(*arg2);
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8729,6 +8790,8 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_chan(PyObject *self, PyObject *args) {
   bool arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
   PyObject *swig_obj[3] ;
   int result;
   
@@ -8739,18 +8802,13 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_chan(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
-  {
-    if (swig_obj[2] == Py_None) {
-      arg3 = false; 
-    }
-    else {
-      arg3 = (bool) PyObject_IsTrue(swig_obj[2]); 
-    }
-  }
+  ecode3 = SWIG_AsVal_bool(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "adf4377_set_en_chan" "', argument " "3"" of type '" "bool""'");
+  } 
+  arg3 = (bool)(val3);
   result = (int)adf4377_set_en_chan(arg1,arg2,arg3);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -8766,31 +8824,27 @@ SWIGINTERN PyObject *_wrap_adf4377_get_en_chan(PyObject *self, PyObject *args) {
   bool *arg3 = (bool *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  bool temp3 ;
-  PyObject *swig_obj[2] ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject *swig_obj[3] ;
   int result;
   
-  {
-    arg3 = &temp3;
-  }
-  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_en_chan", 2, 2, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_en_chan", 3, 3, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_en_chan" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_bool, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "adf4377_get_en_chan" "', argument " "3"" of type '" "bool *""'"); 
+  }
+  arg3 = (bool *)(argp3);
   result = (int)adf4377_get_en_chan(arg1,arg2,arg3);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = (*arg3) ? Py_True : Py_False;
-    Py_INCREF(o);
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8814,14 +8868,10 @@ SWIGINTERN PyObject *_wrap_adf4377_set_out_power(PyObject *self, PyObject *args)
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   {
-    long v = PyLong_AsLong(swig_obj[2]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg3 = (int8_t)(v & 0xFF);
+    arg3 = (int8_t)PyLong_AsLong(swig_obj[2]); 
   }
   result = (int)adf4377_set_out_power(arg1,arg2,arg3);
   resultobj = SWIG_From_int((int)(result));
@@ -8838,30 +8888,27 @@ SWIGINTERN PyObject *_wrap_adf4377_get_out_power(PyObject *self, PyObject *args)
   int8_t *arg3 = (int8_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int8_t temp3 ;
-  PyObject *swig_obj[2] ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject *swig_obj[3] ;
   int result;
   
-  {
-    arg3 = &temp3;
-  }
-  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_out_power", 2, 2, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_out_power", 3, 3, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_out_power" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_signed_char, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "adf4377_get_out_power" "', argument " "3"" of type '" "int8_t *""'"); 
+  }
+  arg3 = (int8_t *)(argp3);
   result = (int)adf4377_get_out_power(arg1,arg2,arg3);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg3));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8884,9 +8931,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_rfout_divider(PyObject *self, PyObject *a
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    unsigned long v = PyLong_AsUnsignedLongMask(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (uint8_t)(v & 0xFF);
+    arg2 = (uint8_t)PyLong_AsUnsignedLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_rfout_divider(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -8902,26 +8947,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_rfout_divider(PyObject *self, PyObject *a
   int8_t *arg2 = (int8_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int8_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_rfout_divider", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_rfout_divider" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_signed_char, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_rfout_divider" "', argument " "2"" of type '" "int8_t *""'"); 
+  }
+  arg2 = (int8_t *)(argp2);
   result = (int)adf4377_get_rfout_divider(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -8967,9 +9010,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_sr_del_adj(PyObject *self, PyObject *args
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    long v = PyLong_AsLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (int32_t) v;
+    arg2 = (int32_t)PyLong_AsLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_sr_del_adj(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -8985,26 +9026,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_sr_del_adj(PyObject *self, PyObject *args
   int32_t *arg2 = (int32_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int32_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_sr_del_adj", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_sr_del_adj" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_sr_del_adj" "', argument " "2"" of type '" "int32_t *""'"); 
+  }
+  arg2 = (int32_t *)(argp2);
   result = (int)adf4377_get_sr_del_adj(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -9017,6 +9056,8 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_sr_inv_adj(PyObject *self, PyObject *a
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   int result;
   
@@ -9026,14 +9067,11 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_sr_inv_adj(PyObject *self, PyObject *a
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_set_en_sr_inv_adj" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  {
-    if (swig_obj[1] == Py_None) {
-      arg2 = false; 
-    }
-    else {
-      arg2 = (bool) PyObject_IsTrue(swig_obj[1]); 
-    }
-  }
+  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "adf4377_set_en_sr_inv_adj" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = (bool)(val2);
   result = (int)adf4377_set_en_sr_inv_adj(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -9048,27 +9086,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_en_sr_inv_adj(PyObject *self, PyObject *a
   bool *arg2 = (bool *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  bool temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_en_sr_inv_adj", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_en_sr_inv_adj" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_bool, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_en_sr_inv_adj" "', argument " "2"" of type '" "bool *""'"); 
+  }
+  arg2 = (bool *)(argp2);
   result = (int)adf4377_get_en_sr_inv_adj(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = (*arg2) ? Py_True : Py_False;
-    Py_INCREF(o);
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -9081,6 +9116,8 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_sysref_monitor(PyObject *self, PyObjec
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   int result;
   
@@ -9090,14 +9127,11 @@ SWIGINTERN PyObject *_wrap_adf4377_set_en_sysref_monitor(PyObject *self, PyObjec
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_set_en_sysref_monitor" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  {
-    if (swig_obj[1] == Py_None) {
-      arg2 = false; 
-    }
-    else {
-      arg2 = (bool) PyObject_IsTrue(swig_obj[1]); 
-    }
-  }
+  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "adf4377_set_en_sysref_monitor" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = (bool)(val2);
   result = (int)adf4377_set_en_sysref_monitor(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -9112,27 +9146,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_en_sysref_monitor(PyObject *self, PyObjec
   bool *arg2 = (bool *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  bool temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_en_sysref_monitor", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_en_sysref_monitor" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_bool, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_en_sysref_monitor" "', argument " "2"" of type '" "bool *""'"); 
+  }
+  arg2 = (bool *)(argp2);
   result = (int)adf4377_get_en_sysref_monitor(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = (*arg2) ? Py_True : Py_False;
-    Py_INCREF(o);
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -9155,9 +9186,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_ndel(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    long v = PyLong_AsLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (int32_t) v;
+    arg2 = (int32_t)PyLong_AsLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_ndel(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -9173,26 +9202,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_ndel(PyObject *self, PyObject *args) {
   int32_t *arg2 = (int32_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int32_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_ndel", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_ndel" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_ndel" "', argument " "2"" of type '" "int32_t *""'"); 
+  }
+  arg2 = (int32_t *)(argp2);
   result = (int)adf4377_get_ndel(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -9215,9 +9242,7 @@ SWIGINTERN PyObject *_wrap_adf4377_set_rdel(PyObject *self, PyObject *args) {
   }
   arg1 = (struct adf4377_dev *)(argp1);
   {
-    long v = PyLong_AsLong(swig_obj[1]);
-    if (PyErr_Occurred()) SWIG_fail;
-    arg2 = (int32_t) v;
+    arg2 = (int32_t)PyLong_AsLong(swig_obj[1]); 
   }
   result = (int)adf4377_set_rdel(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
@@ -9233,26 +9258,24 @@ SWIGINTERN PyObject *_wrap_adf4377_get_rdel(PyObject *self, PyObject *args) {
   int32_t *arg2 = (int32_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int32_t temp2 ;
-  PyObject *swig_obj[1] ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   int result;
   
-  {
-    arg2 = &temp2;
-  }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_get_rdel", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_adf4377_dev, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_get_rdel" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_get_rdel" "', argument " "2"" of type '" "int32_t *""'"); 
+  }
+  arg2 = (int32_t *)(argp2);
   result = (int)adf4377_get_rdel(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
-  {
-    PyObject *o = PyLong_FromLong((long)(*arg2));
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -9288,6 +9311,8 @@ SWIGINTERN PyObject *_wrap_adf4377_soft_reset(PyObject *self, PyObject *args) {
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   int result;
   
@@ -9297,14 +9322,11 @@ SWIGINTERN PyObject *_wrap_adf4377_soft_reset(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_soft_reset" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  {
-    if (swig_obj[1] == Py_None) {
-      arg2 = false; 
-    }
-    else {
-      arg2 = (bool) PyObject_IsTrue(swig_obj[1]); 
-    }
-  }
+  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "adf4377_soft_reset" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = (bool)(val2);
   result = (int)adf4377_soft_reset(arg1,arg2);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
@@ -9317,30 +9339,26 @@ SWIGINTERN PyObject *_wrap_adf4377_init(PyObject *self, PyObject *args) {
   PyObject *resultobj = 0;
   struct adf4377_dev **arg1 = (struct adf4377_dev **) 0 ;
   struct adf4377_init_param *arg2 = (struct adf4377_init_param *) 0 ;
-  struct adf4377_dev *temp1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  PyObject *swig_obj[1] ;
+  PyObject *swig_obj[2] ;
   int32_t result;
   
-  {
-    arg1 = &temp1;
+  if (!SWIG_Python_UnpackTuple(args, "adf4377_init", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_p_adf4377_dev, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_init" "', argument " "1"" of type '" "struct adf4377_dev **""'"); 
   }
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res2 = SWIG_ConvertPtr(swig_obj[0], &argp2,SWIGTYPE_p_adf4377_init_param, 0 |  0 );
+  arg1 = (struct adf4377_dev **)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_adf4377_init_param, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "adf4377_init" "', argument " "2"" of type '" "struct adf4377_init_param *""'"); 
   }
   arg2 = (struct adf4377_init_param *)(argp2);
-  result = adf4377_init(arg1,arg2);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
-  {
-    PyObject *o = SWIG_NewPointerObj(SWIG_as_voidptr(*arg1), SWIGTYPE_p_adf4377_dev, SWIG_POINTER_OWN);
-    resultobj = SWIG_Python_AppendOutput(resultobj, o);
-  }
+  result = (int32_t)adf4377_init(arg1,arg2);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -9362,10 +9380,21 @@ SWIGINTERN PyObject *_wrap_adf4377_remove(PyObject *self, PyObject *args) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "adf4377_remove" "', argument " "1"" of type '" "struct adf4377_dev *""'"); 
   }
   arg1 = (struct adf4377_dev *)(argp1);
-  result = adf4377_remove(arg1);
-  {
-    resultobj = PyLong_FromLong((long)result);
-  }
+  result = (int32_t)adf4377_remove(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_get_linux_spi_ops(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  struct no_os_spi_platform_ops *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "get_linux_spi_ops", 0, 0, 0)) SWIG_fail;
+  result = (struct no_os_spi_platform_ops *)get_linux_spi_ops();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_no_os_spi_platform_ops, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -9510,7 +9539,6 @@ static PyMethodDef SwigMethods[] = {
 	 { "delete_linux_spi_init_param", _wrap_delete_linux_spi_init_param, METH_O, NULL},
 	 { "linux_spi_init_param_swigregister", linux_spi_init_param_swigregister, METH_O, NULL},
 	 { "linux_spi_init_param_swiginit", linux_spi_init_param_swiginit, METH_VARARGS, NULL},
-	 { "get_linux_spi_ops", _wrap_get_linux_spi_ops, METH_NOARGS, NULL},
 	 { "adf4377_init_param_spi_init_set", _wrap_adf4377_init_param_spi_init_set, METH_VARARGS, NULL},
 	 { "adf4377_init_param_spi_init_get", _wrap_adf4377_init_param_spi_init_get, METH_O, NULL},
 	 { "adf4377_init_param_gpio_ce_param_set", _wrap_adf4377_init_param_gpio_ce_param_set, METH_VARARGS, NULL},
@@ -9583,6 +9611,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "adf4377_dev_sr_inv_get", _wrap_adf4377_dev_sr_inv_get, METH_O, NULL},
 	 { "adf4377_dev_sysrefout_set", _wrap_adf4377_dev_sysrefout_set, METH_VARARGS, NULL},
 	 { "adf4377_dev_sysrefout_get", _wrap_adf4377_dev_sysrefout_get, METH_O, NULL},
+	 { "adf4377_dev_init", _wrap_adf4377_dev_init, METH_O, NULL},
 	 { "new_adf4377_dev", _wrap_new_adf4377_dev, METH_NOARGS, NULL},
 	 { "delete_adf4377_dev", _wrap_delete_adf4377_dev, METH_O, NULL},
 	 { "adf4377_dev_swigregister", adf4377_dev_swigregister, METH_O, NULL},
@@ -9591,38 +9620,39 @@ static PyMethodDef SwigMethods[] = {
 	 { "adf4377_spi_update_bit", _wrap_adf4377_spi_update_bit, METH_VARARGS, NULL},
 	 { "adf4377_spi_read", _wrap_adf4377_spi_read, METH_VARARGS, NULL},
 	 { "adf4377_set_ref_clk", _wrap_adf4377_set_ref_clk, METH_VARARGS, NULL},
-	 { "adf4377_get_ref_clk", _wrap_adf4377_get_ref_clk, METH_O, NULL},
+	 { "adf4377_get_ref_clk", _wrap_adf4377_get_ref_clk, METH_VARARGS, NULL},
 	 { "adf4377_set_en_ref_doubler", _wrap_adf4377_set_en_ref_doubler, METH_VARARGS, NULL},
-	 { "adf4377_get_en_ref_doubler", _wrap_adf4377_get_en_ref_doubler, METH_O, NULL},
+	 { "adf4377_get_en_ref_doubler", _wrap_adf4377_get_en_ref_doubler, METH_VARARGS, NULL},
 	 { "adf4377_set_ref_div", _wrap_adf4377_set_ref_div, METH_VARARGS, NULL},
-	 { "adf4377_get_ref_div", _wrap_adf4377_get_ref_div, METH_O, NULL},
+	 { "adf4377_get_ref_div", _wrap_adf4377_get_ref_div, METH_VARARGS, NULL},
 	 { "adf4377_set_cp_i", _wrap_adf4377_set_cp_i, METH_VARARGS, NULL},
-	 { "adf4377_get_cp_i", _wrap_adf4377_get_cp_i, METH_O, NULL},
+	 { "adf4377_get_cp_i", _wrap_adf4377_get_cp_i, METH_VARARGS, NULL},
 	 { "adf4377_set_bleed_word", _wrap_adf4377_set_bleed_word, METH_VARARGS, NULL},
-	 { "adf4377_get_bleed_word", _wrap_adf4377_get_bleed_word, METH_O, NULL},
+	 { "adf4377_get_bleed_word", _wrap_adf4377_get_bleed_word, METH_VARARGS, NULL},
 	 { "adf4377_set_rfout", _wrap_adf4377_set_rfout, METH_VARARGS, NULL},
-	 { "adf4377_get_rfout", _wrap_adf4377_get_rfout, METH_O, NULL},
+	 { "adf4377_get_rfout", _wrap_adf4377_get_rfout, METH_VARARGS, NULL},
 	 { "adf4377_set_en_chan", _wrap_adf4377_set_en_chan, METH_VARARGS, NULL},
 	 { "adf4377_get_en_chan", _wrap_adf4377_get_en_chan, METH_VARARGS, NULL},
 	 { "adf4377_set_out_power", _wrap_adf4377_set_out_power, METH_VARARGS, NULL},
 	 { "adf4377_get_out_power", _wrap_adf4377_get_out_power, METH_VARARGS, NULL},
 	 { "adf4377_set_rfout_divider", _wrap_adf4377_set_rfout_divider, METH_VARARGS, NULL},
-	 { "adf4377_get_rfout_divider", _wrap_adf4377_get_rfout_divider, METH_O, NULL},
+	 { "adf4377_get_rfout_divider", _wrap_adf4377_get_rfout_divider, METH_VARARGS, NULL},
 	 { "adf4377_check_scratchpad", _wrap_adf4377_check_scratchpad, METH_O, NULL},
 	 { "adf4377_set_sr_del_adj", _wrap_adf4377_set_sr_del_adj, METH_VARARGS, NULL},
-	 { "adf4377_get_sr_del_adj", _wrap_adf4377_get_sr_del_adj, METH_O, NULL},
+	 { "adf4377_get_sr_del_adj", _wrap_adf4377_get_sr_del_adj, METH_VARARGS, NULL},
 	 { "adf4377_set_en_sr_inv_adj", _wrap_adf4377_set_en_sr_inv_adj, METH_VARARGS, NULL},
-	 { "adf4377_get_en_sr_inv_adj", _wrap_adf4377_get_en_sr_inv_adj, METH_O, NULL},
+	 { "adf4377_get_en_sr_inv_adj", _wrap_adf4377_get_en_sr_inv_adj, METH_VARARGS, NULL},
 	 { "adf4377_set_en_sysref_monitor", _wrap_adf4377_set_en_sysref_monitor, METH_VARARGS, NULL},
-	 { "adf4377_get_en_sysref_monitor", _wrap_adf4377_get_en_sysref_monitor, METH_O, NULL},
+	 { "adf4377_get_en_sysref_monitor", _wrap_adf4377_get_en_sysref_monitor, METH_VARARGS, NULL},
 	 { "adf4377_set_ndel", _wrap_adf4377_set_ndel, METH_VARARGS, NULL},
-	 { "adf4377_get_ndel", _wrap_adf4377_get_ndel, METH_O, NULL},
+	 { "adf4377_get_ndel", _wrap_adf4377_get_ndel, METH_VARARGS, NULL},
 	 { "adf4377_set_rdel", _wrap_adf4377_set_rdel, METH_VARARGS, NULL},
-	 { "adf4377_get_rdel", _wrap_adf4377_get_rdel, METH_O, NULL},
+	 { "adf4377_get_rdel", _wrap_adf4377_get_rdel, METH_VARARGS, NULL},
 	 { "adf4377_set_freq", _wrap_adf4377_set_freq, METH_O, NULL},
 	 { "adf4377_soft_reset", _wrap_adf4377_soft_reset, METH_VARARGS, NULL},
-	 { "adf4377_init", _wrap_adf4377_init, METH_O, NULL},
+	 { "adf4377_init", _wrap_adf4377_init, METH_VARARGS, NULL},
 	 { "adf4377_remove", _wrap_adf4377_remove, METH_O, NULL},
+	 { "get_linux_spi_ops", _wrap_get_linux_spi_ops, METH_NOARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -9633,15 +9663,15 @@ static swig_type_info _swigt__p_adf4377_dev = {"_p_adf4377_dev", "struct adf4377
 static swig_type_info _swigt__p_adf4377_init_param = {"_p_adf4377_init_param", "struct adf4377_init_param *|adf4377_init_param *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_bool = {"_p_bool", "bool *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t = {"_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t", "int32_t (*)(struct no_os_spi_desc **,struct no_os_spi_init_param const *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc__int32_t = {"_p_f_p_struct_no_os_spi_desc__int32_t", "int32_t (*)(struct no_os_spi_desc *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t = {"_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t", "int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t = {"_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t", "int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t,void (*)(void *),void *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t = {"_p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t", "int32_t (*)(struct no_os_spi_desc *,uint8_t *,uint16_t)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int = {"_p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int", "int32_t (*)(struct no_os_spi_desc **,struct no_os_spi_init_param const *)|int (*)(struct no_os_spi_desc **,struct no_os_spi_init_param const *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc__int = {"_p_f_p_struct_no_os_spi_desc__int", "int32_t (*)(struct no_os_spi_desc *)|int (*)(struct no_os_spi_desc *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int = {"_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int", "int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t)|int (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,unsigned int)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int = {"_p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int", "int32_t (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,uint32_t,void (*)(void *),void *)|int (*)(struct no_os_spi_desc *,struct no_os_spi_msg *,unsigned int,void (*)(void *),void *)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int = {"_p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int", "int32_t (*)(struct no_os_spi_desc *,uint8_t *,uint16_t)|int (*)(struct no_os_spi_desc *,unsigned char *,unsigned short)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_void__void = {"_p_f_p_void__void", "void (*)(void *)", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_int32_t = {"_p_int32_t", "int32_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_int8_t = {"_p_int8_t", "int8_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int = {"_p_int", "int32_t *|int_fast16_t *|int_fast32_t *|int_least32_t *|intptr_t *|int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_linux_spi_init_param = {"_p_linux_spi_init_param", "struct linux_spi_init_param *|linux_spi_init_param *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_long_long = {"_p_long_long", "int64_t *|int_fast64_t *|int_least64_t *|intmax_t *|long long *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_no_os_gpio_desc = {"_p_no_os_gpio_desc", "struct no_os_gpio_desc *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_no_os_gpio_init_param = {"_p_no_os_gpio_init_param", "struct no_os_gpio_init_param *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_no_os_platform_spi_delays = {"_p_no_os_platform_spi_delays", "struct no_os_platform_spi_delays *|no_os_platform_spi_delays *", 0, 0, (void*)0, 0};
@@ -9652,10 +9682,12 @@ static swig_type_info _swigt__p_no_os_spi_platform_ops = {"_p_no_os_spi_platform
 static swig_type_info _swigt__p_no_os_spibus_desc = {"_p_no_os_spibus_desc", "struct no_os_spibus_desc *|no_os_spibus_desc *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_adf4377_dev = {"_p_p_adf4377_dev", "struct adf4377_dev **", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_no_os_spi_desc = {"_p_p_no_os_spi_desc", "struct no_os_spi_desc **", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_uint16_t = {"_p_uint16_t", "uint16_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_uint32_t = {"_p_uint32_t", "uint32_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_uint64_t = {"_p_uint64_t", "uint64_t *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_uint8_t = {"_p_uint8_t", "uint8_t *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_short = {"_p_short", "int16_t *|int_least16_t *|short *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_signed_char = {"_p_signed_char", "int8_t *|int_fast8_t *|int_least8_t *|signed char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "uint8_t *|uint_fast8_t *|uint_least8_t *|unsigned char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "uint32_t *|uint_fast16_t *|uint_fast32_t *|uint_least32_t *|uintptr_t *|unsigned int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_long_long = {"_p_unsigned_long_long", "uint64_t *|uint_fast64_t *|uint_least64_t *|uintmax_t *|unsigned long long *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_short = {"_p_unsigned_short", "uint16_t *|uint_least16_t *|unsigned short *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
@@ -9663,15 +9695,15 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_adf4377_init_param,
   &_swigt__p_bool,
   &_swigt__p_char,
-  &_swigt__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t,
-  &_swigt__p_f_p_struct_no_os_spi_desc__int32_t,
-  &_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t,
-  &_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t,
-  &_swigt__p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t,
+  &_swigt__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int,
+  &_swigt__p_f_p_struct_no_os_spi_desc__int,
+  &_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int,
+  &_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int,
+  &_swigt__p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int,
   &_swigt__p_f_p_void__void,
-  &_swigt__p_int32_t,
-  &_swigt__p_int8_t,
+  &_swigt__p_int,
   &_swigt__p_linux_spi_init_param,
+  &_swigt__p_long_long,
   &_swigt__p_no_os_gpio_desc,
   &_swigt__p_no_os_gpio_init_param,
   &_swigt__p_no_os_platform_spi_delays,
@@ -9682,10 +9714,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_no_os_spibus_desc,
   &_swigt__p_p_adf4377_dev,
   &_swigt__p_p_no_os_spi_desc,
-  &_swigt__p_uint16_t,
-  &_swigt__p_uint32_t,
-  &_swigt__p_uint64_t,
-  &_swigt__p_uint8_t,
+  &_swigt__p_short,
+  &_swigt__p_signed_char,
+  &_swigt__p_unsigned_char,
+  &_swigt__p_unsigned_int,
+  &_swigt__p_unsigned_long_long,
+  &_swigt__p_unsigned_short,
   &_swigt__p_void,
 };
 
@@ -9693,15 +9727,15 @@ static swig_cast_info _swigc__p_adf4377_dev[] = {  {&_swigt__p_adf4377_dev, 0, 0
 static swig_cast_info _swigc__p_adf4377_init_param[] = {  {&_swigt__p_adf4377_init_param, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_bool[] = {  {&_swigt__p_bool, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t[] = {  {&_swigt__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc__int32_t[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc__int32_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int[] = {  {&_swigt__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc__int[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc__int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int[] = {  {&_swigt__p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_void__void[] = {  {&_swigt__p_f_p_void__void, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_int32_t[] = {  {&_swigt__p_int32_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_int8_t[] = {  {&_swigt__p_int8_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_linux_spi_init_param[] = {  {&_swigt__p_linux_spi_init_param, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_no_os_gpio_desc[] = {  {&_swigt__p_no_os_gpio_desc, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_no_os_gpio_init_param[] = {  {&_swigt__p_no_os_gpio_init_param, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_no_os_platform_spi_delays[] = {  {&_swigt__p_no_os_platform_spi_delays, 0, 0, 0},{0, 0, 0, 0}};
@@ -9712,10 +9746,12 @@ static swig_cast_info _swigc__p_no_os_spi_platform_ops[] = {  {&_swigt__p_no_os_
 static swig_cast_info _swigc__p_no_os_spibus_desc[] = {  {&_swigt__p_no_os_spibus_desc, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_adf4377_dev[] = {  {&_swigt__p_p_adf4377_dev, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_no_os_spi_desc[] = {  {&_swigt__p_p_no_os_spi_desc, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_uint16_t[] = {  {&_swigt__p_uint16_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_uint32_t[] = {  {&_swigt__p_uint32_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_uint64_t[] = {  {&_swigt__p_uint64_t, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_uint8_t[] = {  {&_swigt__p_uint8_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_signed_char[] = {  {&_swigt__p_signed_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_unsigned_long_long[] = {  {&_swigt__p_unsigned_long_long, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_unsigned_short[] = {  {&_swigt__p_unsigned_short, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
@@ -9723,15 +9759,15 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_adf4377_init_param,
   _swigc__p_bool,
   _swigc__p_char,
-  _swigc__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int32_t,
-  _swigc__p_f_p_struct_no_os_spi_desc__int32_t,
-  _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t__int32_t,
-  _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_uint32_t_p_f_p_void__void_p_void__int32_t,
-  _swigc__p_f_p_struct_no_os_spi_desc_p_uint8_t_uint16_t__int32_t,
+  _swigc__p_f_p_p_struct_no_os_spi_desc_p_q_const__struct_no_os_spi_init_param__int,
+  _swigc__p_f_p_struct_no_os_spi_desc__int,
+  _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int__int,
+  _swigc__p_f_p_struct_no_os_spi_desc_p_struct_no_os_spi_msg_unsigned_int_p_f_p_void__void_p_void__int,
+  _swigc__p_f_p_struct_no_os_spi_desc_p_unsigned_char_unsigned_short__int,
   _swigc__p_f_p_void__void,
-  _swigc__p_int32_t,
-  _swigc__p_int8_t,
+  _swigc__p_int,
   _swigc__p_linux_spi_init_param,
+  _swigc__p_long_long,
   _swigc__p_no_os_gpio_desc,
   _swigc__p_no_os_gpio_init_param,
   _swigc__p_no_os_platform_spi_delays,
@@ -9742,10 +9778,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_no_os_spibus_desc,
   _swigc__p_p_adf4377_dev,
   _swigc__p_p_no_os_spi_desc,
-  _swigc__p_uint16_t,
-  _swigc__p_uint32_t,
-  _swigc__p_uint64_t,
-  _swigc__p_uint8_t,
+  _swigc__p_short,
+  _swigc__p_signed_char,
+  _swigc__p_unsigned_char,
+  _swigc__p_unsigned_int,
+  _swigc__p_unsigned_long_long,
+  _swigc__p_unsigned_short,
   _swigc__p_void,
 };
 

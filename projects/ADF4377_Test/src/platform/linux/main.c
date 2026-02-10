@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
 	} else {
 		printf("  ✓ Cleanup successful\n");
 	}
-	
+
 	printf("\n========================================\n");
 	if (ret == 0) {
 		printf("Test completed successfully!\n");
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 		printf("Test completed with errors\n");
 	}
 	printf("========================================\n");
-	
+
 	return ret;
 }
 
